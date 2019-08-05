@@ -1,10 +1,10 @@
 const path = require("path");
 const router = require("express").Router();
 const plantsRoutes = require("./plants");
-const usersRoutes = require("./users");
+const userRoutes = require("./user");
 
 router.use("/plants", plantsRoutes);
-router.use("/users", usersRoutes)
+router.use("/user", userRoutes)
 
 router.use(function(req, res) {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
