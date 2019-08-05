@@ -5,13 +5,13 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Garden from "./pages/Garden";
 
-import Nav from "./components/Nav";
+// import Nav from "./components/Nav";
 
 function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        {/* <Nav /> */}
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
