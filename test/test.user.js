@@ -17,8 +17,8 @@ describe("User", function(){
 
     beforeEach(function(done){
         let user = new User({
-            username: "test",
-            password: "testing123"
+            username: "butts",
+            password: "ilikebutts123"
         });
 
         user.save(function(err){

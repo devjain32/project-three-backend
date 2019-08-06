@@ -10,11 +10,9 @@ mongoose.connect(
 
 const userSeed = [
   {
-      username: "dev",
-      password: "",
-      plantsPosted: [
-        "Hello", "Goodbye"
-      ]
+      username: "test",
+      password: "testing123",
+      plantsPosted: []
   }
 ];
 
