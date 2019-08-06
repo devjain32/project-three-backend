@@ -31,4 +31,11 @@ router
   .put(userController.update)
   .delete(userController.remove);
 
+router
+  .route("/logout")
+  .get(function(req, res){
+    req.logout();
+    res.redirect("/user/accounts/login");
+  });
+
 module.exports = router;
