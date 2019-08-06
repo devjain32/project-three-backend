@@ -1,0 +1,34 @@
+ul {
+    align-items: right;
+}
+
+
+
+li {
+    display: inline;
+    margin: 30px;
+}
+
+
+
+.garden {
+    margin: 30px;
+    flex-grow:2
+}
+
+
+#rose {
+    width: 100%;
+}
+
+
+
+.notes {
+    margin: 30px;
+    flex-grow: 1;
+}
+
+
+.parent{
+    display:flex;
+}
