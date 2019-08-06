@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
+import GardenResult from "../components/GardenResult";
 
 class Garden extends Component {
   state = {
@@ -25,6 +26,7 @@ class Garden extends Component {
       <div>
         This is the garden. Click to go back to home <br/>
         <Link to="/">Click here</Link> <br/>
+        <GardenResult />
         <List>
           {this.state.plants.map(plants => (
             <ListItem key={plants._id}>
