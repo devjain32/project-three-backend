@@ -2,11 +2,13 @@ import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import SearchForm from "../components/SearchForm";
+import API from "../utils/API";
 
 
 class Home extends Component {
   state = {
-    plants: []
+    search: ""
+    // plants: []
   }
   
   handleChange = event => {
@@ -19,6 +21,11 @@ class Home extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     // Add call to get plants from database here
+    API.getPlants().then(res => {
+      if (res.data === "error") { throw new Error(res.data) }
+      else {console.log(res.data)}        
+    }) 
+    
   }
 
   render() {
