@@ -45,7 +45,7 @@ class Nav extends Component  {
     <ul className="navbar-nav ml-auto">
     <NavItem path="/" name="Home" />
     <NavItem path="/garden" name="My Garden" />
-    <NavItem path="/logout" name="Logout" disabled="true" />
+    <NavItem path="/logout" name="Logout" />
     </ul>
   </div>
         {/* <form class="form-inline">
