@@ -7,6 +7,9 @@ router.route("/")
   .get(userController.findAll);
 
 router.route("/register")
+  .get(function(req, res){
+    res.render("/register");
+  })
   .post(userController.create);
 
 router.route("/login")
@@ -35,7 +38,7 @@ router
   .route("/logout")
   .get(function(req, res){
     req.logout();
-    res.redirect("/user/accounts/login");
+    res.redirect("/home");
   });
 
 module.exports = router;
