@@ -17,8 +17,11 @@ module.exports = {
   },
   create: function(req, res) {
     db.User
-      .create({username: req.body.username, password: req.body.password})
-      .then(dbModel => res.json(dbModel))
+      .create(req.body)
+      .then(dbModel => 
+        res.json(dbModel),
+        console.log("creating garden for user"),
+        db.Garden.create({userId: req.params.id}))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
