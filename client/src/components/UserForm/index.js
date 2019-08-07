@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import "./style.css";
 
 const UserForm = props => {
     return (
         <div className="registration">
-        <form>
+        <form method="post">
             <div className="form-group">
                 <h4>{props.title}</h4>
             <label htmlFor="register-email">Email address</label>
@@ -14,7 +14,7 @@ const UserForm = props => {
                     className="col-12 form-control"
                     value={props.email}
                     type="email"
-                    name="registerEmail"
+                    name="email"
                     placeholder="Enter email"
                     onChange={props.handleChange}
                 />
@@ -26,16 +26,18 @@ const UserForm = props => {
                     className="col-12 form-control"
                     value={props.password}
                     type="password"
-                    name="registerPW"
+                    name="password"
                     placeholder="Enter your password"
                     onChange={props.handleChange}
                 />
             </div>
             <div className="button">
-                <button type="submit" className="submitBtn btn" onClick={props.handleFormSubmit}>
+                <button 
+                    type="submit" 
+                    className="submitBtn btn"
+                    onClick={props.handleFormSubmit}>
                     Submit
                 </button>
-                <Link to="/login" className="FormField__Link">I'm already a member.</Link>
             </div>
         </form>
         </div>
