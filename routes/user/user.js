@@ -7,15 +7,9 @@ router.route("/")
   .get(userController.findAll);
 
 router.route("/register")
-  .get(function(req, res){
-    res.render("/register");
-  })
   .post(userController.create);
 
-router.route("/login")
-  .get(function(req, res){
-    res.render("/login");
-  })
+  router.route("/login")
   .post(function(req, res, next) {
     console.log("Signing in user");
     console.log(req.body);
@@ -25,7 +19,7 @@ router.route("/login")
     failureRedirect: "/user/accounts/login"
   }), function(req, res){
     console.log("should show if logged");
-    res.status(200).json(req.body);
+    res.redirect(307, "/garden");
   });
 
 router

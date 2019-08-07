@@ -4,7 +4,7 @@ const request = require("supertest");
 
 const agent = request.agent(server);
 const userCreds = {
-    username: "test",
+    email: "test@test.co",
     password: "testing123"
 }
 
