@@ -1,12 +1,11 @@
 ul {
-    align-items: right;
+    list-style: none;
 }
 
 
 
 li {
-    display: inline;
-    margin: 30px;
+    margin: 35px 0px;
 }
 
 
@@ -18,7 +17,7 @@ li {
 
 
 #rose {
-    width: 60%;
+    width: 100%;
 }
 
 
