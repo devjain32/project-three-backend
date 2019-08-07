@@ -19,7 +19,7 @@ router.route("/register")
     failureRedirect: "/user/accounts/login"
   }), function(req, res){
     console.log("should show if logged");
-    res.redirect(307, "/garden");
+    res.json(req.user);
   });
 
 router
