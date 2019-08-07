@@ -1,10 +1,10 @@
-ul {
+.list {
     list-style: none;
 }
 
 
 
-li {
+.tips {
     margin: 35px 0px;
 }
 
@@ -17,7 +17,7 @@ li {
 
 
 #rose {
-    width: 100%;
+    width: 30%;
 }
 
 

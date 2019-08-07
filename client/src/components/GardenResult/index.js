@@ -11,10 +11,10 @@ function GardenResult(){
 
             <div className="notes">
                 <h3>Tips for taking care of this plant :</h3>
-                <ul>
-                    <li>1. Water it twice a day</li>
-                    <li>2. Need sunshine for at least 2 hrs per day</li>
-                    <li>3. Keep it in a dry area</li>
+                <ul class="list">
+                    <li class="tips">1. Water it twice a day</li>
+                    <li class="tips">2. Need sunshine for at least 2 hrs per day</li>
+                    <li class="tips">3. Keep it in a dry area</li>
                 </ul>
 
                 <textarea>Enter your note...</textarea>
