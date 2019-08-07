@@ -1,10 +1,11 @@
 const db = require("../models");
-
+console.log("==========================================")
 // Defining methods for the plantsController
 module.exports = {
   findAll: function(req, res) {
+    console.log("find all was called");
     db.Plants
-      .find(req.query)
+      .find({})
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

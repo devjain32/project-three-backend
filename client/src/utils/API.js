@@ -6,8 +6,13 @@ export default {
     //     return axios.get("/");
     // },
     // Gets the clothes with the given id
-    getPlants: function () {
-        return axios.get("/plants/all");
+    // getPlants: function () {
+    //     return axios.get("/plants/all");
+    // },
+
+    loadPlants: function () {
+        console.log();
+        return axios.get("/plants");
     },
     register: function(regData) {
         console.log(regData);
