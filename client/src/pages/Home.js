@@ -3,12 +3,23 @@ import React, { Component } from "react";
 import Nav from "../components/Nav";
 import SearchForm from "../components/SearchForm";
 import API from "../utils/API";
+import SearchResult from "../components/SearchResult";
 
 
 class Home extends Component {
   state = {
-    search: ""
-    // plants: []
+    search: "",
+    plants: []
+  }
+
+  componentDidMount() {
+    // API.loadPlants();
+    this.loadPlants()
+  }
+  
+  loadPlants = () => {
+    API.loadPlants().then(res => 
+      this.setState({plants: res.data, search: ""}))
   }
   
   handleChange = event => {
@@ -19,12 +30,13 @@ class Home extends Component {
   };
 
   handleFormSubmit = event => {
+    console.log('handle form submit called');
     event.preventDefault();
     // Add call to get plants from database here
-    API.getPlants().then(res => {
-      if (res.data === "error") { throw new Error(res.data) }
-      else {console.log(res.data)}        
-    }) 
+    // API.getPlants().then(res => {
+    //   if (res.data === "error") { throw new Error(res.data) }
+    //   else {console.log(res.data)}        
+    // }) 
     
   }
 
@@ -40,6 +52,9 @@ class Home extends Component {
         </div>}
         handleFormSubmit={this.handleFormSubmit}
         handleChange={this.handleChange}
+        />
+        <SearchResult 
+        plants={this.state.plants}
         />
         {/* Hello! Sign up! <br/>
         <Link to="/register">Click here</Link> <br/> 
