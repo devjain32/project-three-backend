@@ -1,7 +1,7 @@
 {
   "name": "mern",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
     "express": "^4.17.1",
@@ -36,5 +37,14 @@
     "should": "^13.2.3",
     "superagent": "^5.1.0",
     "supertest": "^4.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devjain32/project-three-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/devjain32/project-three-backend/issues"
+  },
+  "homepage": "https://github.com/devjain32/project-three-backend#readme"
+  
 }

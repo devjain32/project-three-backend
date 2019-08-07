@@ -14,8 +14,13 @@ export default {
         console.log();
         return axios.get("/plants");
     },
-
-
+    register: function(regData) {
+        console.log(regData);
+        return axios.post("/user/accounts/register", regData);
+    },
+    login: function(logData) {
+        return axios.post("/user/accounts/login", logData);
+    }
     // Gets the clothes with the given id
     // getClothesId: function (id) {
     //     return axios.get("/clothes/all/" + id);
