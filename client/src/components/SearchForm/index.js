@@ -9,7 +9,7 @@ const SearchForm = props => {
                     className="col-12 form-control"
                     value={props.search}
                     type="text"
-                    name="searchPlants"
+                    name="search"
                     placeholder="Search for plants"
                     onChange={props.handleChange}
                 />

@@ -35,6 +35,13 @@ class Home extends Component {
     API.savePlant(this.state.search)
       .then(res => console.log(res))
       .catch(err => console.log(err))
+    API.findPlant(this.state.search).then(res => this.setState({plants: res.data, search: ""}));
+    // Add call to get plants from database here
+    // API.getPlants().then(res => {
+    //   if (res.data === "error") { throw new Error(res.data) }
+    //   else {console.log(res.data)}        
+    // }) 
+    
   }
 
   render() {
