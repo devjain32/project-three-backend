@@ -20,6 +20,9 @@ export default {
     },
     login: function(logData) {
         return axios.post("/user/accounts/login", logData);
+    },
+    findPlant: function(query) {
+        return axios.get("/plants/"+query)
     }
     // Gets the clothes with the given id
     // getClothesId: function (id) {
