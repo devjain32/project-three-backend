@@ -3,7 +3,9 @@ import React, { Component } from "react";
 import Nav from "../components/Nav";
 import SearchForm from "../components/SearchForm";
 import API from "../utils/API";
-import SearchResult from "../components/SearchResult";
+// import SearchResult from "../components/SearchResult";
+import TestCard from "../components/TestCard";
+
 
 
 class Home extends Component {
@@ -13,13 +15,20 @@ class Home extends Component {
   }
 
   componentDidMount() {
+   
     // API.loadPlants();
     this.loadPlants()
+   
   }
   
   loadPlants = () => {
-    API.loadPlants().then(res => 
-      this.setState({plants: res.data, search: ""}))
+    API.loadPlants().then(res => {
+      console.log(res.data)
+      this.setState({plants: res.data, search: ""})
+    }
+      
+      )
+ 
   }
   
   handleChange = event => {
@@ -64,7 +73,7 @@ class Home extends Component {
         handleFormSubmit={this.handleFormSubmit}
         handleChange={this.handleChange}
         />
-        <SearchResult 
+        <TestCard 
         plants={this.state.plants}
         handleSavedButton={this.handleSavedButton}
         />

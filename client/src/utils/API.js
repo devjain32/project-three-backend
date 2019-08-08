@@ -34,6 +34,9 @@ export default {
     // },
     // Saves a plant to the database
     savePlant: function (savedPlants) {
-        return axios.post("/plants", savedPlants);
+        return axios.post("/garden", savedPlants);
+    },
+    getGarden: function () {
+        return axios.get("/garden");
     }
 };

@@ -11,14 +11,14 @@ class Garden extends Component {
 
 
   componentDidMount() {
-    this.loadPlants();
+    API.getGarden();
   }
 
-  loadPlants = () => {
-   API.loadPlants()
-      .then(res => this.setState({ plants: res.data }))
-      .catch(err => console.log(err));
-  }
+  // loadPlants = () => {
+  //  API.loadPlants()
+  //     .then(res => this.setState({ plants: res.data }))
+  //     .catch(err => console.log(err));
+  // }
 
   render() {
     return (
@@ -36,7 +36,7 @@ class Garden extends Component {
           ))}
         </List>
       </div>
-    );
+    )
   }
 }
 

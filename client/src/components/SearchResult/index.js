@@ -21,12 +21,12 @@ const SearchResult = props => {
                                 <li className="search-list list-group-item">
                                     <Row className="SearchResult row" id={plant.title + "Card"} key={plant._id}>
                                         {/* col-3 show image */}
-                                        <Col size="1" className="plantImage card-img">
+                                        <Col size="md-1" className="plantImage card-img">
                                             <img src={plant.image} alt={plant.title} style={{width: "15rem"}}/>
                                         </Col>
-                                        <Col size="2" className="emptyCol"/>
+                                        <Col size="md-2" className="emptyCol"/>
                                         {/* col-9 show information */}
-                                        <Col size="9" className="plantInfo">
+                                        <Col size="md-9" className="plantInfo">
                                             <Row>
                                                 <h3 className="plantTitle">{plant.title}</h3>
                                             </Row>
