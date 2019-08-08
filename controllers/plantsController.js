@@ -34,5 +34,17 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  findOne: function(req, res) {
+    var plant = req.params.query;
+    query = plant.charAt(0).toUpperCase() + plant.slice(1);
+
+    
+    console.log("=+=+=++=+=+= find one called")
+    console.log("query:", query)
+    db.Plants
+      .find({'title': query})
+      .then(dbPlant => res.json(dbPlant))
+      .catch(err => res.status(422).json(err))
   }
 };

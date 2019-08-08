@@ -32,6 +32,7 @@ class Home extends Component {
   handleFormSubmit = event => {
     console.log('handle form submit called');
     event.preventDefault();
+    API.findPlant(this.state.search).then(res => this.setState({plants: res.data, search: ""}));
     // Add call to get plants from database here
     // API.getPlants().then(res => {
     //   if (res.data === "error") { throw new Error(res.data) }
