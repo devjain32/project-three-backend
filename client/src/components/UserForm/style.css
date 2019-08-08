@@ -20,7 +20,8 @@ h4 {
 }
 
 .FormField__Link {
-    color: white;
+    color: black;
+    float: right;
 }
 
 .submitBtn {

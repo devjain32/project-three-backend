@@ -3,7 +3,7 @@ const plantsController = require("../../controllers/plantsController");
 
 router.route("/")
   .get(plantsController.findAll)
-  .post(plantsController.create);
+  // .post(plantsController.create);
 
 router
   .route("/:id")
