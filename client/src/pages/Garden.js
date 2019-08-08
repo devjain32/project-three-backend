@@ -30,7 +30,8 @@ class Garden extends Component {
         <List>
           {this.state.plants.map(plants => (
             <ListItem key={plants._id}>
-                {plants.type}
+                <h5>{plants.title}</h5>
+                <p>{plants.description}</p>
             </ListItem>
           ))}
         </List>
