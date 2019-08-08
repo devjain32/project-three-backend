@@ -6,9 +6,9 @@ router.route("/")
   // .post(plantsController.create);
 
 router
-  .route("/:id")
-  .get(plantsController.findById)
+  .route("/save/:query")
+  // .get(plantsController.findById)
   .put(plantsController.update)
-  .delete(plantsController.remove);
+  // .delete(plantsController.remove);
 
 module.exports = router;
