@@ -1,6 +1,6 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 
-export const usePosition = () => {
+const usePosition = () => {
     const [position, setPosition] = useState({});
     const [error, setError] = useState(null);
 
@@ -29,3 +29,5 @@ export const usePosition = () => {
 
     return {...position, error};
 }
+
+export default usePosition;

@@ -19,15 +19,16 @@ class Login extends Component {
     });
   };
 
-  setLogin(){
+  setLogin(email){
     this.setState({
+      email: email,
       isLoggedIn: true
     });
   }
 
-  renderRedirect(){
+  renderRedirect(email){
     const isLoggedIn = this.state.isLoggedIn;
-    return isLoggedIn ? <Redirect to = "/garden" /> : ""
+    return isLoggedIn ? <Redirect to = {`/garden/${email}`} /> : ""
   }
 
   handleFormSubmit = event => {
@@ -37,7 +38,7 @@ class Login extends Component {
         email: this.state.email,
         password: this.state.password
       })
-      .then(res =>  this.setLogin())
+      .then(res =>  this.setLogin(res.data.email))
       .catch(err => console.log(err));
     }
   }
@@ -55,10 +56,10 @@ class Login extends Component {
                         handleChange={this.handleChange}
                         isLoggedIn={this.state.isLoggedIn}
                         />
-                        <Link to="/register" className="FormField__Link">I need to sign up!</Link>
+                        <Link to="/" className="FormField__Link">I need to sign up!</Link>
                     </div>
                     {
-                      this.renderRedirect()
+                      this.renderRedirect(this.state.email)
                     }
                 </Col>
             </Row>
