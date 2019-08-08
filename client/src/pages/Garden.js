@@ -15,7 +15,7 @@ class Garden extends Component {
   }
 
   loadPlants = () => {
-   API.getPlants()
+   API.loadPlants()
       .then(res => this.setState({ plants: res.data }))
       .catch(err => console.log(err));
   }

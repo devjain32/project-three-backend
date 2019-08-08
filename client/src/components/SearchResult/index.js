@@ -7,7 +7,7 @@ const SearchResult = props => {
         <div className="card">
             <div className="card-body player">
                 <div className="article">
-                    <h3>Plants</h3>
+                    <h3>No Plants to Display</h3>
                 </div>
             </div>
         </div>
@@ -21,10 +21,10 @@ const SearchResult = props => {
                                 <li className="search-list list-group-item">
                                     <Row className="SearchResult row" id={plant.title + "Card"} key={plant._id}>
                                         {/* col-3 show image */}
-                                        <Col size="2" className="plantImage">
+                                        <Col size="1" className="plantImage card-img">
                                             <img src={plant.image} alt={plant.title} style={{width: "15rem"}}/>
                                         </Col>
-                                        <Col size="1" className="emptyCol"/>
+                                        <Col size="2" className="emptyCol"/>
                                         {/* col-9 show information */}
                                         <Col size="9" className="plantInfo">
                                             <Row>

@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Garden from "./pages/Garden";
+import CommunityGarden from "./pages/CommunityGarden";
 
 // import Nav from "./components/Nav";
 
@@ -18,6 +19,7 @@ function App() {
           {/* <Route exact path="/register" component={Register} /> */}
           <Route exact path="/garden" component={Garden} />
           <Route exact path="/plants" component={Home} />
+          <Route exact path="/accounts" component={CommunityGarden} />
 
         </Switch>
       </div>
