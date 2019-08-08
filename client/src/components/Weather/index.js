@@ -1,39 +1,26 @@
 import React, { Component } from "react";
 import GetCoordinates from "../../utils/GetCoordinates";
-import API from "../../utils/API";
-let lat;
-let long;
+import Proptypes from "prop-types";
+// import API from "../../utils/API";
 
-GetCoordinates();
-lat = GetCoordinates.latitude;
-long = GetCoordinates.longitude;
-
-class Weather extends Component {
-    state = {
-        weather:  []
-    }
-
-    componentDidMount(){
-        this.findWeather();
-    }
-
-    findWeather() {
-        API.getWeather(lat, long)
-            .then(res => this.setState({ weather: res.data }))
-            .catch(err => console.log(err))
+// const coordProps = GetCoordinates().props
+const long = Proptypes.checkPropTypes({values: GetCoordinates.longitude});
     
-    }
+// console.log(coordProps);
+console.log(long);
+    // API.getWeather(lat, long)
+    //     .then(res => this.setState({ weather: res.data }))
+    //     .catch(err => console.log(err))
 
-    render(){
-        return (
-            <div>
-                <h3>Weather in your location</h3>
-                <span>
-                    {this.state.weather}
-                </span>
-            </div>
-        )
-    }
+function Weather(props) {
+    return (
+        <div>
+            <h3>Weather in your location</h3>
+            <span>
+                    {props}
+            </span>
+        </div>
+    )
 
 };
 

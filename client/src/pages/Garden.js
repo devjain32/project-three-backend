@@ -5,6 +5,7 @@ import { List, ListItem } from "../components/List";
 import GardenResult from "../components/GardenResult";
 // import Weather from "../components/Weather";
 
+
 class Garden extends Component {
   state = {
     plants: []
@@ -12,7 +13,9 @@ class Garden extends Component {
 
 
   componentDidMount() {
-    this.loadGarden();
+    let emailArr = window.location.pathname.split("/");
+    let email = emailArr.slice(2);
+    this.loadGarden(email);
   }
 
   componentDidUpdate(){
@@ -33,7 +36,6 @@ class Garden extends Component {
 
   render() {
     return (
-
       <div>
         This is the garden. Click to search plants <br/>
         <Link to="/plants">Click here</Link> <br/>
