@@ -12,7 +12,6 @@ router.route("/register")
   router.route("/login")
   .post(function(req, res, next) {
     console.log("Signing in user");
-    console.log(req.body);
     next();
   }, passport.authenticate("local", {
     successRedirect: "/garden/",

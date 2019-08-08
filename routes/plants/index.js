@@ -1,17 +1,11 @@
 const router = require("express").Router();
 const plantsRoutes = require("./plants");
-const plantController = require("../../controllers/plantsController");
+// const plantController = require("../../controllers/plantsController");
 
-router.route("/")
-    .get(
-        // res.send("byyyeeee")
-        plantController.findAll
-        // console.log("+++++++++++++++++++++++++++++");
-   
-    )
+// router.route("/")
+//     .get(plantController.findAll)
 
 
-// Book routes
-// router.use("/all", plantsRoutes);
+router.use("/", plantsRoutes);
 
 module.exports = router;

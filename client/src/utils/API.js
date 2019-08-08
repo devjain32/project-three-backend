@@ -7,7 +7,7 @@ export default {
     // },
     // Gets the clothes with the given id
     // getPlants: function () {
-    //     return axios.get("/plants/all");
+    //     return axios.get("/plants");
     // },
 
     loadPlants: function () {
