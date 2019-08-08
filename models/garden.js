@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const gardenSchema = new Schema({
     plants: { type: Array, required: false },
-    userId: { type: String }
+    userId: { type: String, unique: true }
 })
 
 const Garden = mongoose.model("Garden", gardenSchema);

@@ -9,17 +9,15 @@ router.route("/")
 router.route("/register")
   .post(userController.create);
 
-  router.route("/login")
-  .post(function(req, res, next) {
-    console.log("Signing in user");
-    next();
-  }, passport.authenticate("local", {
-    successRedirect: "/garden/",
-    failureRedirect: "/user/accounts/login"
-  }), function(req, res){
-    console.log("should show if logged");
-    res.json(req.user);
-  });
+router.route("/login")
+.post(function(req, res, next) {
+  console.log("Signing in user");
+  next();
+}, passport.authenticate("local"), function(req, res){
+  console.log("should show if logged");
+  console.log(req.user);
+  res.json(req.user);
+});
 
 router
   .route("/:id", isAuthenticated)
