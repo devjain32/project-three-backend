@@ -4,7 +4,7 @@ import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import GardenResult from "../components/GardenResult";
 import { MyVerticallyCenteredModal } from "../components/ButtonToolbar"
-import  {  Button,ButtonToolbar, Modal, ModalHeader } from 'react-bootstrap';
+import  {  Button, ButtonToolbar, Modal, ModalHeader } from 'react-bootstrap';
 import rose from "../components/GardenResult/rose.jpg";
 import Weather from "../components/Weather";
 
