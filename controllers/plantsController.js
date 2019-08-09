@@ -1,9 +1,7 @@
 const db = require("../models");
-console.log("==========================================")
 // Defining methods for the plantsController
 module.exports = {
   findAll: function(req, res) {
-    console.log("find all was called");
     db.Plants
       .find({})
       .sort({ date: -1 })
@@ -24,7 +22,7 @@ module.exports = {
   },
   update: function(req, res) {
     db.Plants
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ title: req.params.query }, {isSaved: true})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -34,5 +32,17 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  findOne: function(req, res) {
+    var plant = req.params.query;
+    query = plant.charAt(0).toUpperCase() + plant.slice(1);
+
+    
+    console.log("=+=+=++=+=+= find one called")
+    console.log("query:", query)
+    db.Plants
+      .find({title: query})
+      .then(dbPlant => res.json(dbPlant))
+      .catch(err => res.status(422).json(err))
   }
 };

@@ -1,36 +1,29 @@
 import axios from "axios";
+require("dotenv").config();
 
 export default {
-    // Gets all clothes
-    // getClothes: function () {
-    //     return axios.get("/");
-    // },
-    // Gets the clothes with the given id
-    // getPlants: function () {
-    //     return axios.get("/plants/all");
-    // },
-
+    makeGarden: function(email){
+        return axios.post("/garden/create", email);
+    },
+    loadGarden: function(email){
+        return axios.get("/garden/" + email);
+    },
     loadPlants: function () {
-        console.log();
         return axios.get("/plants");
     },
+    savePlant: function (query) {
+        return axios.put("/plants/" + query);
+    },
     register: function(regData) {
-        console.log(regData);
         return axios.post("/user/accounts/register", regData);
     },
     login: function(logData) {
         return axios.post("/user/accounts/login", logData);
+    },
+    // getWeather: function(lat, long) {
+    //     return axios.get(`api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=4862ae605d56e820907f865fd8f479fa`)
+    // },
+    findPlant: function(query) {
+        return axios.get("/plants/"+query)
     }
-    // Gets the clothes with the given id
-    // getClothesId: function (id) {
-    //     return axios.get("/clothes/all/" + id);
-    // },
-    // // Deletes the clothes with the given id
-    // deleteClothes: function (id) {
-    //     return axios.delete("/clothes/" + id);
-    // },
-    // // Saves a clothe to the database
-    // saveClothes: function (clothesData) {
-    //     return axios.post("/api/clothes", clothesData);
-    // }
 };

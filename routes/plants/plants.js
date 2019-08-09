@@ -1,14 +1,35 @@
 const router = require("express").Router();
 const plantsController = require("../../controllers/plantsController");
 
+// router.route("/")
+//   .get(plantsController.findAll)
+  // .post(plantsController.create);
+  
+  router.route("/:query")
+  .get(
+      // console.log("query:", req.params.query)
+      plantsController.findOne
+  )
+
 router.route("/")
-  .get(plantsController.findAll)
-  .post(plantsController.create);
+  .get(function(req, res, next){
+    console.log(req.user),
+    next();
+  }, plantsController.findAll
+      // res.send("byyyeeee")
+
+      // console.log("+++++++++++++++++++++++++++++");
+
+  )
+
+
+
+
 
 router
-  .route("/:id")
-  .get(plantsController.findById)
+  .route("/save/:query")
+  // .get(plantsController.findById)
   .put(plantsController.update)
-  .delete(plantsController.remove);
+  // .delete(plantsController.remove);
 
 module.exports = router;
