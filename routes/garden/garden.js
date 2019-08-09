@@ -12,7 +12,8 @@ router.route("/", isAuthenticated)
         
         gardenController.findAndUpdate
         // res.send("alsjfdlaskdjf;aslkfj")
-    )
+    );
+    
 router.route("/create", isAuthenticated)
     .post(function(req, res, next){
         console.log(req.user);
