@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button } from 'react-bootstrap';
 
 export function MyVerticallyCenteredModal(props) {
     return (
@@ -25,4 +25,3 @@ export function MyVerticallyCenteredModal(props) {
       </Modal>
     );
   }
-

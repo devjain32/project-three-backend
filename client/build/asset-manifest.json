@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/devjain32/project-three-backend/static/css/main.cd82e132.chunk.css",
+    "main.js": "/devjain32/project-three-backend/static/js/main.aa0bb5f1.chunk.js",
+    "main.js.map": "/devjain32/project-three-backend/static/js/main.aa0bb5f1.chunk.js.map",
+    "runtime~main.js": "/devjain32/project-three-backend/static/js/runtime~main.65138e80.js",
+    "runtime~main.js.map": "/devjain32/project-three-backend/static/js/runtime~main.65138e80.js.map",
+    "static/js/2.c6913bb7.chunk.js": "/devjain32/project-three-backend/static/js/2.c6913bb7.chunk.js",
+    "static/js/2.c6913bb7.chunk.js.map": "/devjain32/project-three-backend/static/js/2.c6913bb7.chunk.js.map",
+    "index.html": "/devjain32/project-three-backend/index.html",
+    "precache-manifest.e30924c744720d7871ec152336010550.js": "/devjain32/project-three-backend/precache-manifest.e30924c744720d7871ec152336010550.js",
+    "service-worker.js": "/devjain32/project-three-backend/service-worker.js",
+    "static/css/main.cd82e132.chunk.css.map": "/devjain32/project-three-backend/static/css/main.cd82e132.chunk.css.map",
+    "static/media/style.css": "/devjain32/project-three-backend/static/media/leaf-image.63dc6763.jpg"
+  }
+}
