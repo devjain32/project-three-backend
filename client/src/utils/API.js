@@ -5,14 +5,14 @@ export default {
     makeGarden: function(email){
         return axios.post("/garden/create", email);
     },
-    loadGarden: function(email){
-        return axios.get("/garden/" + email);
+    loadGarden: function(){
+        return axios.get("/garden");
     },
     loadPlants: function () {
         return axios.get("/plants");
     },
-    savePlant: function (query) {
-        return axios.put("/plants/" + query);
+    savePlant: function (id) {
+        return axios.post("/garden", id);
     },
     register: function(regData) {
         return axios.post("/user/accounts/register", regData);

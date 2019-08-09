@@ -2,6 +2,7 @@ const db = require("../models");
 // Defining methods for the plantsController
 module.exports = {
   findAll: function(req, res) {
+    console.log(req.user)
     db.Plants
       .find({})
       .sort({ date: -1 })
