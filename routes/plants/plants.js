@@ -1,17 +1,18 @@
 const router = require("express").Router();
 const plantsController = require("../../controllers/plantsController");
+const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 // router.route("/")
 //   .get(plantsController.findAll)
   // .post(plantsController.create);
   
-  router.route("/:query")
+  router.route("/:query", isAuthenticated)
   .get(
       // console.log("query:", req.params.query)
       plantsController.findOne
   )
 
-router.route("/")
+router.route("/", isAuthenticated)
   .get(function(req, res, next){
     console.log(req.user),
     next();
