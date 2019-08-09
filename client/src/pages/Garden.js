@@ -4,9 +4,11 @@ import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import GardenResult from "../components/GardenResult";
 import { MyVerticallyCenteredModal } from "../components/ButtonToolbar"
-import  {  Button,ButtonToolbar, Modal } from 'react-bootstrap';
+import  {  Button,ButtonToolbar, Modal, ModalHeader } from 'react-bootstrap';
+import rose from "../components/GardenResult/rose.jpg";
 
-function Example() {
+
+function Example(props) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -14,19 +16,24 @@ function Example() {
 
   return (
     <>
-      <GardenResult/>
-      <Button variant="primary" onClick={handleShow} style={backgroundImage: url("https://images.unsplash.com/photo-1519058497187-7167f17c6daf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60")}>
-        Launch demo modal
-      </Button>
+      <GardenResult test={"hello"} handleShowProp={handleShow}/>
+      {/* <Button variant="primary" onClick={handleShow}>
+        Select this plant
+      </Button> */}
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={() => setShow(false)} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title">
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title id="example-custom-modal-styling-title">
+            <img style={{width:"100%"}} src={rose} alt="no img"/>
+            Notes and Tips
+        </Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <textarea style={{width:"100%", margin:"15px"}} placeholder="Add a note..."></textarea>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cancel
           </Button>
           <Button variant="primary" onClick={handleClose}>
             Save Changes
@@ -44,7 +51,9 @@ class Garden extends Component {
  
   render(){
     return(
-     <Example/>
+    <>
+      <Example/>
+    </>
     );
   }
   
@@ -54,72 +63,6 @@ class Garden extends Component {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // state = {
-  //   plants: []
-  // };
-
-
-  // componentDidMount() {
-  //   this.loadPlants();
-  // }
-
-  // loadPlants = () => {
-  //  API.getPlants()
-  //     .then(res => this.setState({ plants: res.data }))
-  //     .catch(err => console.log(err));
-  // }
-
-  // render() {
-  //   // const [modalShow, setModalShow] = React.useState(false);
-  //   return (
-
-  //     <div>
-  //       This is the garden. Click to go back to home <br/>
-  //       <Link to="/">Click here</Link> <br/>
-  //       <GardenResult />
-  //       <List>
-  //         {this.state.plants.map(plants => (
-  //           <ListItem key={plants._id}>
-  //               {plants.type}
-
-  //               <ButtonToolbar>
-  //               <Button variant="primary" onClick={() => setModalShow(true)}>
-  //                 Modal
-  //               </Button>
-  //               <MyVerticallyCenteredModal
-  //                 show={modalShow}
-  //                 onHide={() => setModalShow(false)}/>
-  //               </ButtonToolbar>
-
-  //           </ListItem>
-  //         ))}
-  //       </List>
-  //     </div>
-  //   );
-  // }
 }
 
 export default Garden;

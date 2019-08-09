@@ -3,28 +3,21 @@
 }
 
 
-
-.tips {
-    margin: 35px 0px;
-}
-
-
-
 .garden {
-    margin: 30px;
-    flex-grow:2
+    margin: 6% 12%;
+    flex-grow:1
 }
 
 
 #rose {
     width: 30%;
+    backface-visibility: hidden;
+    transition-duration: 0.3s;
+    transition-property: transform;
 }
 
-
-
-.notes {
-    margin: 30px;
-    flex-grow: 1;
+#rose:hover {
+    transform: scale(1.1);
 }
 
 
