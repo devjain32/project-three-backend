@@ -1,12 +1,10 @@
-import React, { Component, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
-import { MyVerticallyCenteredModal } from "../components/ButtonToolbar"
-import { Button, ButtonToolbar } from 'react-bootstrap';
 import GardenResult from "../components/GardenResult";
 import { MyVerticallyCenteredModal } from "../components/ButtonToolbar"
-import  {  Button, ButtonToolbar, Modal, ModalHeader } from 'react-bootstrap';
+import  {  Button, ButtonToolbar, Modal,  } from 'react-bootstrap';
 import rose from "../components/GardenResult/rose.jpg";
 import Weather from "../components/Weather";
 
@@ -53,70 +51,63 @@ function Example(props) {
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
 
 
-class Garden extends Component {
+const Garden = () => {
+  const [state, setState] = useState({
+    foundGarden: false,
+    plants: []
+  })
 
- 
-  render(){
-    return(
-    <>
-      <Example/>
-    </>
-    );
-  componentDidMount() {
-    let emailArr = window.location.pathname.split("/");
-    let email = emailArr.slice(2);
-    this.loadGarden(email);
-  }
+  // render(){
+  //   return(
+  //   <>
+  //     <Example/>
+  //   </>
+  //   );
 
-  componentDidUpdate(){
-    this.loadPlants();
-  }
-
-  loadGarden = email => {
+  const loadGarden = email => {
     API.loadGarden(email)
-      .then(res => console.log(res.data))
       .catch(err => console.log(err));
   }
 
-  loadPlants = () => {
+  const loadPlants = () => {
    API.loadPlants()
-      .then(res => this.setState({ plants: res.data }))
+      .then(res => setState({...state, plants: res.data }))
       .catch(err => console.log(err));
   }
+  let emailArr = window.location.pathname.split("/");
+  let email = emailArr.slice(2);
 
-  render() {
-    const [modalShow, setModalShow] = React.useState(false);
-    return (
-      <div>
-        This is the garden. Click to go back to home <br />
-        <Link to="/">Click here</Link> <br />
-        <List>
-          {this.state.plants.map(plants => (
-            <ListItem key={plants._id}>
-              {plants.type}
-              <ButtonToolbar>
-                <Button variant="primary" onClick={() => setModalShow(true)}>
-                  Modal
-                </Button>
+  useEffect(() => {
+    loadGarden(email);
+    loadPlants();
+  })
 
-                <MyVerticallyCenteredModal
-                  show={modalShow}
-                  onHide={() => setModalShow(false)}
-                />
-              </ButtonToolbar>
-            </ListItem>
-          ))}
-        </List>
-      </div>
-    )
-  }
-  
-
-
-
-
-
-
-}
+  const [modalShow, setModalShow] = React.useState(false);
+  return (
+    <div>
+      This is the garden. Click to go back to home <br />
+      <Link to="/">Click here</Link> <br />
+      <List>
+        {state.plants.map(plants => (
+          <ListItem key={plants._id}>
+            <h3>{plants.title}</h3>
+            <ButtonToolbar>
+              {/* <Button variant="primary" onClick={() => setModalShow(true)}>
+                Modal
+              </Button> */}
+              <Example />
+              {plants.description}
+              <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+              />
+            </ButtonToolbar>
+          </ListItem>
+        ))}
+      </List>
+      <Weather />
+    </div>
+  )
+};
 
 export default Garden;
