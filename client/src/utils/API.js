@@ -25,5 +25,8 @@ export default {
     // },
     findPlant: function(query) {
         return axios.get("/plants/"+query)
+    },
+    logout: function(){
+        return axios.get("/user/accounts/logout");
     }
 };
