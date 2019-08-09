@@ -43,8 +43,9 @@ class Nav extends Component {
         </button>
         <div className={`${classOne}`} id="navbarResponsive">
           <ul className="navbar-nav ml-auto">
-            <NavItem path="/" name="Home" />
+            <NavItem path="/plants" name="Home" />
             <NavItem path="/garden" name="My Garden" />
+            <NavItem path="/accounts" name="Community Garden" />
             <NavItem path="/logout" name="Logout" />
           </ul>
         </div>
