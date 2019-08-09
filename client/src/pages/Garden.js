@@ -66,15 +66,22 @@ const Garden = () => {
 
   const loadGarden = () => {
     API.loadGarden()
-      .then(res => setState({...state, foundGarden: true, plants: res.data}))
+      .then(res => setState({foundGarden: true, plants: res.data.plants}))
       .catch(err => console.log(err));
   }
+
+  // const loadPlants = () => {
+  //   API.loadPlants()
+  //   .then(res => setState({...state, plants: res.data}))
+  //   .catch(err => console.log(err));
+  // }
   // let emailArr = window.location.pathname.split("/");
   // let email = emailArr.slice(2);
 
   useEffect(() => {
     if(state.foundGarden === false && state.plants.length === 0){
       loadGarden();
+      // loadPlants();
     }
   })
 
@@ -91,7 +98,9 @@ const Garden = () => {
               {/* <Button variant="primary" onClick={() => setModalShow(true)}>
                 Modal
               </Button> */}
-              <Example />
+              <Example>
+                {plants.image}
+              </Example>
               {plants.description}
               <MyVerticallyCenteredModal
                 show={modalShow}
