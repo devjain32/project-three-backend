@@ -2,25 +2,13 @@ import React from "react";
 import "./style.css";
 import rose from "./rose.jpg";
 
-function GardenResult(){
+function GardenResult(props){
     return (
         <div className="parent">
             <div className="garden">
-                <img id="rose" src={rose} alt="garden-section"/>
+                <img id="rose" onClick={()=>{props.handleShowProp()}} src={rose} alt="garden-section"/>
             </div>
 
-            <div className="notes">
-                <h3>Tips for taking care of this plant :</h3>
-                <ul>
-                    <li>1. Water it twice a day</li>
-                    <li>2. Need sunshine for at least 2 hrs per day</li>
-                    <li>3. Keep it in a dry area</li>
-                </ul>
-
-                <textarea>Enter your note...</textarea>
-                <button>Add a note</button>
-
-            </div>
         </div>
     );
 }

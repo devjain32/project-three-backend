@@ -1,57 +1,113 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import GardenResult from "../components/GardenResult";
+import { MyVerticallyCenteredModal } from "../components/ButtonToolbar"
+import  {  Button, ButtonToolbar, Modal,  } from 'react-bootstrap';
+import rose from "../components/GardenResult/rose.jpg";
 import Weather from "../components/Weather";
 
 
-class Garden extends Component {
-  state = {
-    plants: []
-  };
 
+function Example(props) {
+  const [show, setShow] = useState(false);
 
-  componentDidMount() {
-    let emailArr = window.location.pathname.split("/");
-    let email = emailArr.slice(2);
-    this.loadGarden(email);
-  }
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-  componentDidUpdate(){
-    this.loadPlants();
-  }
+  return (
+    <>
+      <GardenResult test={"hello"} handleShowProp={handleShow}/>
+      {/* <Button variant="primary" onClick={handleShow}>
+        Select this plant
+      </Button> */}
 
-  loadGarden = email => {
-    API.loadGarden(email)
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err));
-  }
-
-  loadPlants = () => {
-   API.loadPlants()
-      .then(res => this.setState({ plants: res.data }))
-      .catch(err => console.log(err));
-  }
-
-  render() {
-    return (
-      <div>
-        This is the garden. Click to search plants <br/>
-        <Link to="/plants">Click here</Link> <br/>
-        <GardenResult />
-        <Weather />
-        <List>
-          {this.state.plants.map(plants => (
-            <ListItem key={plants.isSaved}>
-                <h5>{plants.title}</h5>
-                <p>{plants.description}</p>
-            </ListItem>
-          ))}
-        </List>
-      </div>
-    )
-  }
+      <Modal show={show} onHide={() => setShow(false)} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title">
+        <Modal.Header closeButton>
+          <Modal.Title id="example-custom-modal-styling-title">
+            <img style={{width:"100%"}} src={rose} alt="no img"/>
+            Notes and Tips
+        </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <textarea style={{width:"100%", margin:"15px"}} placeholder="Add a note..."></textarea>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
 }
+
+
+  // When this component mounts, grab the book with the _id of this.props.match.params.id
+  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
+
+
+const Garden = () => {
+  const [state, setState] = useState({
+    foundGarden: false,
+    plants: []
+  })
+
+  // render(){
+  //   return(
+  //   <>
+  //     <Example/>
+  //   </>
+  //   );
+
+  const loadGarden = email => {
+    API.loadGarden(email)
+      .catch(err => console.log(err));
+  }
+
+  const loadPlants = () => {
+   API.loadPlants()
+      .then(res => setState({...state, plants: res.data }))
+      .catch(err => console.log(err));
+  }
+  let emailArr = window.location.pathname.split("/");
+  let email = emailArr.slice(2);
+
+  useEffect(() => {
+    loadGarden(email);
+    loadPlants();
+  })
+
+  const [modalShow, setModalShow] = React.useState(false);
+  return (
+    <div>
+      This is the garden. Click to go back to home <br />
+      <Link to="/">Click here</Link> <br />
+      <List>
+        {state.plants.map(plants => (
+          <ListItem key={plants._id}>
+            <h3>{plants.title}</h3>
+            <ButtonToolbar>
+              {/* <Button variant="primary" onClick={() => setModalShow(true)}>
+                Modal
+              </Button> */}
+              <Example />
+              {plants.description}
+              <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+              />
+            </ButtonToolbar>
+          </ListItem>
+        ))}
+      </List>
+      <Weather />
+    </div>
+  )
+};
 
 export default Garden;
