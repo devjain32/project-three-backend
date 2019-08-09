@@ -3,20 +3,16 @@ import { Link } from "react-router-dom";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import GardenResult from "../components/GardenResult";
-<<<<<<< HEAD
 import { MyVerticallyCenteredModal } from "../components/ButtonToolbar"
 import  {  Button,ButtonToolbar, Modal, ModalHeader } from 'react-bootstrap';
 import rose from "../components/GardenResult/rose.jpg";
-=======
 import Weather from "../components/Weather";
 
->>>>>>> master
 
 
 function Example(props) {
   const [show, setShow] = useState(false);
 
-<<<<<<< HEAD
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -61,7 +57,6 @@ class Garden extends Component {
       <Example/>
     </>
     );
-=======
   componentDidMount() {
     let emailArr = window.location.pathname.split("/");
     let email = emailArr.slice(2);
@@ -101,7 +96,6 @@ class Garden extends Component {
         </List>
       </div>
     )
->>>>>>> master
   }
   
 
