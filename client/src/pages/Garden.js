@@ -50,7 +50,7 @@ class Garden extends Component {
           ))}
         </List>
       </div>
-    );
+    )
   }
 }
 
