@@ -77,10 +77,10 @@ const Garden = () => {
   let emailArr = window.location.pathname.split("/");
   let email = emailArr.slice(2);
 
-  useEffect(() => {
-    loadGarden(email);
-    loadPlants();
-  })
+  // useEffect(() => {
+  //   loadGarden(email);
+  //   loadPlants();
+  // })
 
   const [modalShow, setModalShow] = React.useState(false);
   return (
