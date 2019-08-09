@@ -66,7 +66,7 @@ const Garden = () => {
 
   const loadGarden = () => {
     API.loadGarden()
-      .then(res => setState({...state, foundGarden: true, plants: res.data}))
+      .then(res => setState({foundGarden: true, plants: res.data.plants}))
       .catch(err => console.log(err));
   }
   // let emailArr = window.location.pathname.split("/");
