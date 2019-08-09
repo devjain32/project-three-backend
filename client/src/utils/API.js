@@ -11,8 +11,8 @@ export default {
     loadPlants: function () {
         return axios.get("/plants");
     },
-    savePlant: function (query) {
-        return axios.put("/plants/" + query);
+    savePlant: function (id) {
+        return axios.post("/garden", id);
     },
     register: function(regData) {
         return axios.post("/user/accounts/register", regData);
