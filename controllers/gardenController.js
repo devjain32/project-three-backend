@@ -10,8 +10,9 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     find: function(req, res){
-        console.log("hello", req.user.email);
         console.log(req.user)
+        console.log(req.body)
+        console.log("hello");
         db.Garden
             .findOne({userId: req.user.email})
             .populate('plants')
@@ -19,6 +20,7 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     create: function(req, res){
+        console.log(req.body)
         db.Garden
             .create({userId: req.body.email})
             .then(dbModel => res.json(dbModel))

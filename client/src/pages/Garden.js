@@ -66,19 +66,22 @@ const Garden = () => {
 
   const loadGarden = () => {
     API.loadGarden()
-      .then(res => {
-        console.log(res.data.plants)
-        setState({ foundGarden: true, plants: res.data.plants})
-      }
-      )
+      .then(res => setState({foundGarden: true, plants: res.data.plants}))
       .catch(err => console.log(err));
   }
+
+  // const loadPlants = () => {
+  //   API.loadPlants()
+  //   .then(res => setState({...state, plants: res.data}))
+  //   .catch(err => console.log(err));
+  // }
   // let emailArr = window.location.pathname.split("/");
   // let email = emailArr.slice(2);
 
   useEffect(() => {
     if(state.foundGarden === false && state.plants.length === 0){
       loadGarden();
+      // loadPlants();
     }
   })
 
