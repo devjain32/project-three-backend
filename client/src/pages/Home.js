@@ -55,12 +55,15 @@ class Home extends Component {
 
   handleSavedButton = event => {
     event.preventDefault();
-    console.log(this.state.plants)
-    let savedPlants = this.state.plants.filter(plant => plant.id === event.target.id)
-    savedPlants = savedPlants[0];
-    API.savePlant(savedPlants)
-        .then(this.setState({ message: alert("Your plant is saved") }))
-        .catch(err => console.log(err))
+    console.log(this.state.plants);
+    console.log(event.target.id);
+    const plantObj = {id: event.target.id}
+    API.savePlant(plantObj).then(plant => console.log(plant))
+    // let savedPlants = this.state.plants.filter(plant => plant.id === event.target.id)
+    // savedPlants = savedPlants[0];
+    // API.savePlant(savedPlants)
+    //     .then(this.setState({ message: alert("Your plant is saved") }))
+    //     .catch(err => console.log(err))
   }
 
   render() {
