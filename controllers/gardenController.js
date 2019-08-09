@@ -14,11 +14,7 @@ module.exports = {
         console.log(req.user)
         db.Garden
             .findOne({userId: req.user.email})
-<<<<<<< HEAD
             .then(dbModel => res.json(dbModel))
-=======
-            .then(dbGarden => dbGarden.plants.push(req.body))
->>>>>>> master
             .catch(err => res.status(422).json(err));
     },
     create: function(req, res){

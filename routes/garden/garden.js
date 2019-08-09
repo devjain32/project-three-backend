@@ -3,20 +3,15 @@ const gardenController = require("../../controllers/gardenController");
 const isAuthenticated = require("../../config/middleware/isAuthenticated")
 
 router.route("/")
-    .post(
-        gardenController.findAndUpdate
-        // res.send("alsjfdlaskdjf;aslkfj")
-    )
-
-
-
-
-router.route("/:email", isAuthenticated)
     .get(function(req, res, next){
         console.log("In the garden!");
         console.log(req.user)
         next();
-    }, gardenController.find);
+    }, gardenController.find)
+    .post(
+        gardenController.findAndUpdate
+        // res.send("alsjfdlaskdjf;aslkfj")
+    )
 
 router.route("/create", isAuthenticated)
     .post(function(req, res, next){
