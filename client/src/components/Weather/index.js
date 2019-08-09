@@ -1,39 +1,41 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import GetCoordinates from "../../utils/GetCoordinates";
-import API from "../../utils/API";
-let lat;
-let long;
+// import API from "../../utils/API";
 
-GetCoordinates();
-lat = GetCoordinates.latitude;
-long = GetCoordinates.longitude;
-
-class Weather extends Component {
-    state = {
-        weather:  []
+const Weather = () => {
+    const [state, setState] = useState({
+        weather: "",
+        foo: "bar"
+    });
+    const coords = GetCoordinates().props;
+    // console.log(coords.children[0].latitude);
+    const lat = {...coords.children[0]}.latitude;
+    // console.log(coords.children[1].longitude);
+    const long = {...coords.children[1]}.longitude;
+    const getWeather = (lat, long) => {
+        if(lat && long){
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=4862ae605d56e820907f865fd8f479fa`)
+            .then(res => setState({...state, weather: res.data}))
+            .catch(err => console.log(err));
+        }
     }
-
-    componentDidMount(){
-        this.findWeather();
-    }
-
-    findWeather() {
-        API.getWeather(lat, long)
-            .then(res => this.setState({ weather: res.data }))
-            .catch(err => console.log(err))
-    
-    }
-
-    render(){
-        return (
-            <div>
-                <h3>Weather in your location</h3>
-                <span>
-                    {this.state.weather}
-                </span>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <h3>Weather in your location</h3>
+            <span>
+                    <p>{lat}</p>
+            </span>
+            <span>
+                    <p>{long}</p>
+            </span>
+            {
+                console.log(getWeather(lat, long))
+            }
+            {
+                console.log(state)
+            }
+        </div>
+    )
 
 };
 

@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import GardenResult from "../components/GardenResult";
-// import Weather from "../components/Weather";
+import Weather from "../components/Weather";
+
 
 class Garden extends Component {
   state = {
@@ -12,7 +13,9 @@ class Garden extends Component {
 
 
   componentDidMount() {
-    this.loadGarden();
+    let emailArr = window.location.pathname.split("/");
+    let email = emailArr.slice(2);
+    this.loadGarden(email);
   }
 
   componentDidUpdate(){
@@ -33,12 +36,11 @@ class Garden extends Component {
 
   render() {
     return (
-
       <div>
         This is the garden. Click to search plants <br/>
         <Link to="/plants">Click here</Link> <br/>
         <GardenResult />
-        {/* <Weather /> */}
+        <Weather />
         <List>
           {this.state.plants.map(plants => (
             <ListItem key={plants.isSaved}>
