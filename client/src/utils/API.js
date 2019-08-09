@@ -5,8 +5,8 @@ export default {
     makeGarden: function(email){
         return axios.post("/garden/create", email);
     },
-    loadGarden: function(email){
-        return axios.get("/garden/" + email);
+    loadGarden: function(){
+        return axios.get("/garden");
     },
     loadPlants: function () {
         return axios.get("/plants");
