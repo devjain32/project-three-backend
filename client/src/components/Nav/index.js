@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import logo from "./Copy of Plant Pal Logo.png";
+import API from "../../utils/API";
 
 const NavItem = props => {
   const pageURI = window.location.pathname + window.location.search
@@ -10,6 +12,7 @@ const NavItem = props => {
       <a href={props.path} className={aClassName}>
         {props.name}
         {(props.path === pageURI) ? (<span className="sr-only">(current)</span>) : ''}
+        {props.onClick}
       </a>
     </li>
   );
@@ -28,6 +31,18 @@ class Nav extends Component {
       collapsed: !this.state.collapsed,
     });
   }
+
+  redirect(){
+    return <Redirect to = "/" />
+  }
+
+  handleLogout(){
+    API.logout()
+      .then(res => this.redirect())
+      .catch(err => console.log(err))
+  }
+
+
   render() {
     const collapsed = this.state.collapsed;
     const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
@@ -46,7 +61,7 @@ class Nav extends Component {
             <NavItem path="/plants" name="Home" />
             <NavItem path="/garden" name="My Garden" />
             <NavItem path="/accounts" name="Community Garden" />
-            <NavItem path="/logout" name="Logout" />
+            <NavItem path="/" name="Logout" onClick={() => this.handleLogout} />
           </ul>
         </div>
         {/* <form class="form-inline">

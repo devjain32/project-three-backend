@@ -28,8 +28,9 @@ router
 router
   .route("/logout")
   .get(function(req, res){
+    console.log(req.user);
     req.logout();
-    res.redirect("/home");
+    res.redirect("/");
   });
 
 module.exports = router;
