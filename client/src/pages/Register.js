@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Col, Row, Container } from "../components/Grid";
 import UserForm from "../components/UserForm";
 import Header from "../components/Header";
+import API from "../utils/API";
 
 class Register extends Component {
   state = {
       email: "",
       password: "",
+      isReg: false
   };
 
   handleChange = event => {
@@ -17,9 +19,41 @@ class Register extends Component {
     });
   };
 
+  setEmail(res){
+    this.setState({
+      email: res.data.email
+    })
+  }
+  setReg(){
+    this.setState({
+      isReg: true,
+    });
+  }
+
+  renderRedirect(email){
+    const isReg = this.state.isReg;
+    return isReg ? <Redirect to = {`/garden/${email}`} /> : ""
+  }
+
   handleFormSubmit = event => {
     event.preventDefault();
+  console.log(this.state)
     // Add more here (what happens when a user clicks submit)
+    if(this.state.email && this.state.password){
+      console.log("before api reg");
+      API.register({
+        email: this.state.email,
+        password: this.state.password
+      })
+      .then(res => this.setEmail(res.data.email))
+      .catch(err => console.log(err));
+      console.log("before garden make");
+      API.makeGarden({
+        email: this.state.email
+      })
+      .then(res => this.setReg())
+      .catch(err => console.log(err))
+    }
   }
 
   render() {
@@ -34,7 +68,11 @@ class Register extends Component {
                         handleFormSubmit={this.handleFormSubmit}
                         handleChange={this.handleChange}
                         />
+                        <Link to="/login" className="FormField__Link">I'm already a member.</Link>
                     </div>
+                    {
+                      this.renderRedirect(this.state.email)
+                    }
                 </Col>
             </Row>
           </Container>

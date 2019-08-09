@@ -2,11 +2,33 @@ import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import SearchForm from "../components/SearchForm";
+import API from "../utils/API";
+// import SearchResult from "../components/SearchResult";
+import TestCard from "../components/TestCard";
+
 
 
 class Home extends Component {
   state = {
+    search: "",
     plants: []
+  }
+
+  componentDidMount() {
+   
+    // API.loadPlants();
+    this.loadPlants()
+   
+  }
+  
+  loadPlants = () => {
+    API.loadPlants().then(res => {
+      console.log(res.data)
+      this.setState({plants: res.data, search: ""})
+    }
+      
+      )
+ 
   }
   
   handleChange = event => {
@@ -17,8 +39,28 @@ class Home extends Component {
   };
 
   handleFormSubmit = event => {
+    console.log('handle form submit called');
     event.preventDefault();
+    API.savePlant(this.state.search)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+    API.findPlant(this.state.search).then(res => this.setState({plants: res.data, search: ""}));
     // Add call to get plants from database here
+    // API.getPlants().then(res => {
+    //   if (res.data === "error") { throw new Error(res.data) }
+    //   else {console.log(res.data)}        
+    // }) 
+    
+  }
+
+  handleSavedButton = event => {
+    event.preventDefault();
+    console.log(this.state.plants)
+    let savedPlants = this.state.plants.filter(plant => plant.id === event.target.id)
+    savedPlants = savedPlants[0];
+    API.savePlant(savedPlants)
+        .then(this.setState({ message: alert("Your plant is saved") }))
+        .catch(err => console.log(err))
   }
 
   render() {
@@ -33,6 +75,10 @@ class Home extends Component {
         </div>}
         handleFormSubmit={this.handleFormSubmit}
         handleChange={this.handleChange}
+        />
+        <TestCard 
+        plants={this.state.plants}
+        handleSavedButton={this.handleSavedButton}
         />
         {/* Hello! Sign up! <br/>
         <Link to="/register">Click here</Link> <br/> 
