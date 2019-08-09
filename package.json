@@ -12,7 +12,9 @@
     "seed": "node scripts/plantsDB.js && node scripts/userDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "",
   "license": "ISC",
@@ -36,5 +38,6 @@
     "should": "^13.2.3",
     "superagent": "^5.1.0",
     "supertest": "^4.0.2"
-  }
+  },
+  "homepage":"https://devjain32.github.io/project-three-backend"
 }
