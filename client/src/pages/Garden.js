@@ -6,7 +6,7 @@ import GardenResult from "../components/GardenResult";
 import { MyVerticallyCenteredModal } from "../components/ButtonToolbar"
 import  {  Button, ButtonToolbar, Modal,  } from 'react-bootstrap';
 import rose from "../components/GardenResult/rose.jpg";
-import Weather from "../components/Weather";
+// import Weather from "../components/Weather";
 
 
 
@@ -59,34 +59,30 @@ const Garden = () => {
 
   // render(){
   //   return(
-  //   <>
+  //   <>`
   //     <Example/>
   //   </>
   //   );
 
-  const loadGarden = email => {
-    API.loadGarden(email)
+  const loadGarden = () => {
+    API.loadGarden()
+      .then(res => setState({...state, foundGarden: true, plants: res.data}))
       .catch(err => console.log(err));
   }
+  // let emailArr = window.location.pathname.split("/");
+  // let email = emailArr.slice(2);
 
-  const loadPlants = () => {
-   API.loadPlants()
-      .then(res => setState({...state, plants: res.data }))
-      .catch(err => console.log(err));
-  }
-  let emailArr = window.location.pathname.split("/");
-  let email = emailArr.slice(2);
-
-  // useEffect(() => {
-  //   loadGarden(email);
-  //   loadPlants();
-  // })
+  useEffect(() => {
+    if(state.foundGarden === false && state.plants.length === 0){
+      loadGarden();
+    }
+  })
 
   const [modalShow, setModalShow] = React.useState(false);
   return (
     <div>
-      This is the garden. Click to go back to home <br />
-      <Link to="/">Click here</Link> <br />
+      This is the garden. Click to go to plants <br />
+      <Link to="/plants">Click here</Link> <br />
       <List>
         {state.plants.map(plants => (
           <ListItem key={plants._id}>
@@ -105,7 +101,7 @@ const Garden = () => {
           </ListItem>
         ))}
       </List>
-      <Weather />
+      {/* <Weather /> */}
     </div>
   )
 };

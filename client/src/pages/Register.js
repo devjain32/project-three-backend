@@ -32,7 +32,7 @@ class Register extends Component {
 
   renderRedirect(email){
     const isReg = this.state.isReg;
-    return isReg ? <Redirect to = {`/garden/${email}`} /> : ""
+    return isReg ? <Redirect to = {`/garden`} /> : ""
   }
 
   handleFormSubmit = event => {
