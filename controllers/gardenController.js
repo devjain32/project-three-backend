@@ -3,6 +3,7 @@ const db = require("../models");
 module.exports = {
     find: function(req, res){
         console.log("hello", req.params.email);
+        console.log(req.user)
         db.Garden
             .findOne({userId: req.params.email})
             .then(dbModel => res.json(dbModel))

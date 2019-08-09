@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import GardenResult from "../components/GardenResult";
-// import Weather from "../components/Weather";
+import Weather from "../components/Weather";
 
 
 class Garden extends Component {
@@ -40,7 +40,7 @@ class Garden extends Component {
         This is the garden. Click to search plants <br/>
         <Link to="/plants">Click here</Link> <br/>
         <GardenResult />
-        {/* <Weather /> */}
+        <Weather />
         <List>
           {this.state.plants.map(plants => (
             <ListItem key={plants.isSaved}>
