@@ -7,7 +7,12 @@ router.route("/")
   .get(userController.findAll);
 
 router.route("/register")
-  .post(userController.create);
+  .post(function(req, res, next){
+    console.log(req),
+    console.log(req.body),
+    console.log(req.body.email),
+    next();
+  }, userController.create);
 
 router.route("/login")
 .post(function(req, res, next) {
