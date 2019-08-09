@@ -26,9 +26,9 @@ class Login extends Component {
     });
   }
 
-  renderRedirect(email){
+  renderRedirect(){
     const isLoggedIn = this.state.isLoggedIn;
-    return isLoggedIn ? <Redirect to = {`/garden/${email}`} /> : ""
+    return isLoggedIn ? <Redirect to = {`/garden`} /> : ""
   }
 
   handleFormSubmit = event => {

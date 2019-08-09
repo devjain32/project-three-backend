@@ -30,14 +30,14 @@ class Register extends Component {
     });
   }
 
-  renderRedirect(email){
+  renderRedirect(){
     const isReg = this.state.isReg;
-    return isReg ? <Redirect to = {`/garden/${email}`} /> : ""
+    return isReg ? <Redirect to = {`/login`} /> : ""
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
-  console.log(this.state)
+    console.log(this.state)
     // Add more here (what happens when a user clicks submit)
     if(this.state.email && this.state.password){
       console.log("before api reg");
@@ -45,7 +45,7 @@ class Register extends Component {
         email: this.state.email,
         password: this.state.password
       })
-      .then(res => this.setEmail(res.data.email))
+      .then(res => this.setEmail(res))
       .catch(err => console.log(err));
       console.log("before garden make");
       API.makeGarden({

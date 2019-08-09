@@ -28,7 +28,7 @@ const TestCard = props => {
                             <div className="card-body">
                             <h5 className="card-title">{plant.title}</h5>
                             <p className="card-text">{plant.description}</p>
-                            <button className="savePlant btn" id={plant.id} onClick={(event) => props.handleSavedButton(event)}>
+                            <button className="savePlant btn" id={plant._id} onClick={(event) => props.handleSavedButton(event)}>
                                 Add to Garden
                             </button>
                         </div>
