@@ -41,7 +41,7 @@ module.exports = {
     console.log("=+=+=++=+=+= find one called")
     console.log("query:", query)
     db.Plants
-      .find({'title': query})
+      .find({title: query})
       .then(dbPlant => res.json(dbPlant))
       .catch(err => res.status(422).json(err))
   }

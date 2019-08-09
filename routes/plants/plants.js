@@ -12,9 +12,12 @@ const plantsController = require("../../controllers/plantsController");
   )
 
 router.route("/")
-  .get(
+  .get(function(req, res, next){
+    console.log(req.user),
+    next();
+  }, plantsController.findAll
       // res.send("byyyeeee")
-      plantsController.findAll
+
       // console.log("+++++++++++++++++++++++++++++");
 
   )
