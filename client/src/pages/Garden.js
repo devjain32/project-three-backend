@@ -18,7 +18,7 @@ function Example(props) {
 
   return (
     <>
-      <GardenResult test={"hello"} handleShowProp={handleShow}/>
+      <GardenResult test={"hello"}  img={props.img} handleShowProp={handleShow}/>
       {/* <Button variant="primary" onClick={handleShow}>
         Select this plant
       </Button> */}
@@ -26,7 +26,7 @@ function Example(props) {
       <Modal show={show} onHide={() => setShow(false)} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title">
         <Modal.Header closeButton>
           <Modal.Title id="example-custom-modal-styling-title">
-            <img style={{width:"100%"}} src={rose} alt="no img"/>
+            <img style={{width:"100%"}} src={props.img} alt="no img"/>
             Notes and Tips
         </Modal.Title>
         </Modal.Header>
@@ -66,7 +66,11 @@ const Garden = () => {
 
   const loadGarden = () => {
     API.loadGarden()
-      .then(res => setState({...state, foundGarden: true, plants: res.data}))
+      .then(res => {
+        console.log(res.data.plants)
+        setState({ foundGarden: true, plants: res.data.plants})
+      }
+      )
       .catch(err => console.log(err));
   }
   // let emailArr = window.location.pathname.split("/");
@@ -87,14 +91,17 @@ const Garden = () => {
         {state.plants.map(plants => (
           <ListItem key={plants._id}>
             <h3>{plants.title}</h3>
-            <ButtonToolbar>
+            <ButtonToolbar >
+              
               {/* <Button variant="primary" onClick={() => setModalShow(true)}>
                 Modal
               </Button> */}
-              <Example />
+              
+              <Example img={plants.image}/>
               {plants.description}
               <MyVerticallyCenteredModal
                 show={modalShow}
+                
                 onHide={() => setModalShow(false)}
               />
             </ButtonToolbar>

@@ -6,7 +6,7 @@ function GardenResult(props){
     return (
         <div className="parent">
             <div className="garden">
-                <img id="rose" onClick={()=>{props.handleShowProp()}} src={rose} alt="garden-section"/>
+                <img id="rose" onClick={()=>{props.handleShowProp()}} src={props.img} alt="garden-section"/>
             </div>
 
         </div>

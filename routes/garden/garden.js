@@ -7,16 +7,17 @@ router.route("/")
         gardenController.findAndUpdate
         // res.send("alsjfdlaskdjf;aslkfj")
     )
+    .get(gardenController.find)
 
 
 
 
-router.route("/:email", isAuthenticated)
-    .get(function(req, res, next){
-        console.log("In the garden!");
-        console.log(req.user)
-        next();
-    }, gardenController.find);
+// router.route("/:email", isAuthenticated)
+//     .get(function(req, res, next){
+//         console.log("In the garden!");
+//         console.log(req.user)
+//         next();
+//     }, gardenController.find);
 
 router.route("/create", isAuthenticated)
     .post(function(req, res, next){
