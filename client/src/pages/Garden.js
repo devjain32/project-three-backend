@@ -4,8 +4,8 @@ import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import GardenResult from "../components/GardenResult";
 import { MyVerticallyCenteredModal } from "../components/ButtonToolbar"
-import  {  Button, ButtonToolbar, Modal,  } from 'react-bootstrap';
-import rose from "../components/GardenResult/rose.jpg";
+import  {  Button, ButtonToolbar, Modal } from 'react-bootstrap';
+
 // import Weather from "../components/Weather";
 
 
@@ -31,7 +31,7 @@ function Example(props) {
         </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <textarea style={{width:"100%", margin:"15px"}} placeholder="Add a note..."></textarea>
+          <textarea style={{width:"100%"}} placeholder="Add a note..."></textarea>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

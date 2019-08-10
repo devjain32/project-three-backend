@@ -10,6 +10,7 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     find: function(req, res){
+        console.log("========load garden called==========")
         console.log(req.user)
         console.log(req.body)
         console.log("hello");
