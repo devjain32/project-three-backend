@@ -6,7 +6,7 @@ import GardenResult from "../components/GardenResult";
 import { MyVerticallyCenteredModal } from "../components/ButtonToolbar"
 import  {  Button, ButtonToolbar, Modal,  } from 'react-bootstrap';
 import rose from "../components/GardenResult/rose.jpg";
-// import Weather from "../components/Weather";
+import Weather from "../components/Weather";
 
 
 
@@ -110,7 +110,7 @@ const Garden = () => {
           </ListItem>
         ))}
       </List>
-      {/* <Weather /> */}
+      <Weather />
     </div>
   )
 };

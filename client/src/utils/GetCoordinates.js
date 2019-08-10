@@ -7,7 +7,7 @@ const GetCoordinates = () => {
     return (
       <code>
         {
-            [{latitude}, {longitude}, {error}]
+            [{latitude, longitude, error}]
         }
       </code>
     );

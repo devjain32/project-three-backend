@@ -1,39 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GetCoordinates from "../../utils/GetCoordinates";
-// import API from "../../utils/API";
+import API from "../../utils/API";
 
 const Weather = () => {
-    const [state, setState] = useState({
-        weather: "",
-        foo: "bar"
-    });
-    const coords = GetCoordinates().props;
-    // console.log(coords.children[0].latitude);
-    const lat = {...coords.children[0]}.latitude;
-    // console.log(coords.children[1].longitude);
-    const long = {...coords.children[1]}.longitude;
-    const getWeather = (lat, long) => {
-        if(lat && long){
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=4862ae605d56e820907f865fd8f479fa`)
-            .then(res => setState({...state, weather: res.data}))
-            .catch(err => console.log(err));
-        }
-    }
+    const co = GetCoordinates().props.children[0];
+    console.log(co.latitude);
+    console.log(co.longitude);
+
+    const [weather, setWeather] = useState([])
+    useEffect(()=> {
+        const fetchWeather = async () =>{
+            const results = await API.getWeather(co.latitude, co.longitude);
+    
+            setWeather(results.data);
+        };
+        fetchWeather();
+    }, [co.latitude, co.longitude])
+    
+    console.log(weather);
+    console.log(weather.name);
+    console.log(weather.weather);
+
     return (
         <div>
-            <h3>Weather in your location</h3>
+            <h3>Weather in {weather.name}</h3>
             <span>
-                    <p>{lat}</p>
+                    <p>{JSON.stringify(weather.weather)}</p>
             </span>
             <span>
-                    <p>{long}</p>
+                    {/* <p>{Coordinates.coords.long}</p> */}
             </span>
-            {
-                console.log(getWeather(lat, long))
-            }
-            {
-                console.log(state)
-            }
+            <span>
+                    {/* <p>{[weather.data]}</p> */}
+            </span>
         </div>
     )
 
