@@ -81,7 +81,8 @@ const Garden = () => {
 
   const loadGarden = () => {
     API.loadGarden()
-      .then(res => setState({ foundGarden: true, plants: res.data.plants }))
+      .then(res => {setState({ foundGarden: true, plants: res.data.plants })
+              console.log(res)})
       .catch(err => console.log(err));
   }
 
