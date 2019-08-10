@@ -26,6 +26,12 @@ export default {
     findPlant: function(query) {
         return axios.get("/plants/"+query)
     },
+    postNote: function(note) {
+        return axios.post("/notes/create", note)
+    },
+    postNoteToPlant: function(note) {
+        return axios.post("/plants/notes", note)
+    },
     logout: function(){
         return axios.get("/user/accounts/logout");
     }

@@ -5,6 +5,7 @@ module.exports = {
     console.log(req.user)
     db.Plants
       .find({})
+      .populate('notes')
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -43,6 +44,15 @@ module.exports = {
     console.log("query:", query)
     db.Plants
       .find({title: query})
+      .then(dbPlant => res.json(dbPlant))
+      .catch(err => res.status(422).json(err))
+  },
+  findOneAndUpdate: function(req, res) {
+    console.log("made it into find one and update")
+    console.log(req.body.plantId)
+    console.log(req.body._id)
+    db.Plants
+      .findOneAndUpdate({_id: req.body.plantId}, {$push: {notes: req.body._id}})
       .then(dbPlant => res.json(dbPlant))
       .catch(err => res.status(422).json(err))
   }
