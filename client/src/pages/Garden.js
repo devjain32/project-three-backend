@@ -22,7 +22,12 @@ function Example(props) {
       plantId: event.target.id,
       body: notes
     })
-    .then(res => console.log(res))
+    .then(
+      res => {
+        console.log(res)
+        API.postNoteToPlant(res.data)
+      }
+    )
     .catch(err => console.log(err))
   }
 

@@ -45,5 +45,14 @@ module.exports = {
       .find({title: query})
       .then(dbPlant => res.json(dbPlant))
       .catch(err => res.status(422).json(err))
+  },
+  findOneAndUpdate: function(req, res) {
+    console.log("made it into find one and update")
+    console.log(req.body.plantId)
+    console.log(req.body._id)
+    db.Plants
+      .findOneAndUpdate({_id: req.body.plantId}, {$push: {notes: req.body._id}})
+      .then(dbPlant => res.json(dbPlant))
+      .catch(err => res.status(422).json(err))
   }
 };
