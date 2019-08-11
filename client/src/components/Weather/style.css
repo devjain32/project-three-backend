@@ -1,17 +1,12 @@
 .weather {
-    width: 31vw;
+    width: 20vw;
     height: 14vh;
     padding: 15px 10px;
     border-radius: 5px;
     text-align: center;
-    background-color: gainsboro;
-    opacity: 0.4;
+    background-color: hsla(0, 0%, 86%, 0.4);
 }
 
-h5, .info, .hi, .lo {
-    color: black;
-    opacity: 1;
-}
 
 .info {
     font-size: .9rem;
