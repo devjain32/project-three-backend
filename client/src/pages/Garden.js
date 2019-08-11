@@ -5,8 +5,8 @@ import { List, ListItem } from "../components/List";
 import GardenResult from "../components/GardenResult";
 import { MyVerticallyCenteredModal } from "../components/ButtonToolbar"
 import { Button, ButtonToolbar, Modal, } from 'react-bootstrap';
-import rose from "../components/GardenResult/rose.jpg";
-// import Weather from "../components/Weather";
+// import rose from "../components/GardenResult/rose.jpg";
+import Weather from "../components/Weather";
 
 
 
@@ -104,6 +104,7 @@ const Garden = () => {
   const [modalShow, setModalShow] = React.useState(false);
   return (
     <div>
+      <Weather />
       This is the garden. Click to go to plants <br />
       <Link to="/plants">Click here</Link> <br />
       <List>
@@ -127,7 +128,6 @@ const Garden = () => {
           </ListItem>
         ))}
       </List>
-      {/* <Weather /> */}
     </div>
   )
 };
