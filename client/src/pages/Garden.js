@@ -5,7 +5,7 @@ import { List, ListItem } from "../components/List";
 import GardenResult from "../components/GardenResult";
 import { MyVerticallyCenteredModal } from "../components/ButtonToolbar"
 import { Button, ButtonToolbar, Modal, } from 'react-bootstrap';
-import rose from "../components/GardenResult/rose.jpg";
+// import rose from "../components/GardenResult/rose.jpg";
 import Weather from "../components/Weather";
 
 
