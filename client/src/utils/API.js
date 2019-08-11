@@ -20,11 +20,17 @@ export default {
     login: function(logData) {
         return axios.post("/user/accounts/login", logData);
     },
-    // getWeather: function(lat, long) {
-    //     return axios.get(`api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=4862ae605d56e820907f865fd8f479fa`)
-    // },
+    getWeather: function(lat, long) {
+        return axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=4862ae605d56e820907f865fd8f479fa`)
+    },
     findPlant: function(query) {
         return axios.get("/plants/"+query)
+    },
+    postNote: function(note) {
+        return axios.post("/notes/create", note)
+    },
+    postNoteToPlant: function(note) {
+        return axios.post("/plants/notes", note)
     },
     logout: function(){
         return axios.get("/user/accounts/logout");
