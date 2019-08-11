@@ -4,13 +4,14 @@
 
 
 .garden {
-    margin: 6% 12%;
+    /* margin: 6% 12%; */
     flex-grow:1
 }
 
 
 #rose {
-    width: 30%;
+    width: 60%;
+    margin-top: 1rem;
     backface-visibility: hidden;
     transition-duration: 0.3s;
     transition-property: transform;
@@ -23,4 +24,8 @@
 
 .parent{
     display:flex;
+    
+    
 }
+
+
