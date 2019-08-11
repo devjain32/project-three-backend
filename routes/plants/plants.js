@@ -23,6 +23,12 @@ router.route("/", isAuthenticated)
 
   )
 
+router.route("/notes", isAuthenticated)
+  .post(function(req, res, next) {
+    console.log("plants notes", req.body._id);
+    next();
+  }, plantsController.findOneAndUpdate)
+
 
 
 

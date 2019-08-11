@@ -5,7 +5,7 @@ module.exports = {
         console.log("******************", req.user.email)
         console.log("*****************", req.body)
         db.Garden
-            .findOneAndUpdate({userId: req.user.email}, {$push: {plants: req.body}})
+            .findOneAndUpdate({userId: req.user.email}, {$push: {plants: req.body._id}})
             .then(dbGarden => console.log("updated garden", dbGarden))
             .catch(err => res.status(422).json(err));
     },
@@ -15,6 +15,8 @@ module.exports = {
         console.log("hello");
         db.Garden
             .findOne({userId: req.user.email})
+            .populate('plants')
+            .populate('plants.notes')
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
