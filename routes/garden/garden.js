@@ -2,7 +2,7 @@ const router = require("express").Router();
 const gardenController = require("../../controllers/gardenController");
 const isAuthenticated = require("../../config/middleware/isAuthenticated")
 
-router.route("/")
+router.route("/api")
     .get(function(req, res, next){
         console.log("In the garden!")
         console.log(req.body)

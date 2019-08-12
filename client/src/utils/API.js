@@ -6,10 +6,10 @@ export default {
         return axios.post("/garden/create", email);
     },
     loadGarden: function(){
-        return axios.get("/garden");
+        return axios.get("/garden/api");
     },
     loadPlants: function () {
-        return axios.get("/plants");
+        return axios.get("/plants/api");
     },
     savePlant: function (id) {
         return axios.post("/garden", id);
@@ -24,13 +24,13 @@ export default {
         return axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=4862ae605d56e820907f865fd8f479fa`)
     },
     findPlant: function(query) {
-        return axios.get("/plants/"+query)
+        return axios.get("/plants/api/"+query)
     },
     postNote: function(note) {
         return axios.post("/notes/create", note)
     },
     postNoteToPlant: function(note) {
-        return axios.post("/plants/notes", note)
+        return axios.post("/plants/api/notes", note)
     },
     logout: function(){
         return axios.get("/user/accounts/logout");

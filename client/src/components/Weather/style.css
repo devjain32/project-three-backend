@@ -1,17 +1,50 @@
 .weather {
-    width: 20vw;
-    height: 14vh;
     padding: 15px 10px;
     border-radius: 5px;
     text-align: center;
-    background-color: hsla(0, 0%, 86%, 0.4);
+    display: inline;
 }
 
+h5 {
+    margin: 0;
+}
 
-.info {
+.weather-block {
+    /* background-color: hsla(0, 0%, 86%, 0.4); */
+    display: inline;
+    position: relative;
+    left: calc(40% - 21vw);
+    text-align: center;
     font-size: .9rem;
 }
 
-.hi, .lo{
-    font-size: .75em;
+.info {
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.hi, .lo, .humid {
+    padding: 5px;
+    margin-left: 2px;
+}
+
+@media screen and (max-width: 768px){
+    .weather-block{
+        left: calc(30% - 19vw);
+    }
+}
+
+@media screen and (max-width: 450px){
+    .weather, .weather-block {
+        display: inline-block;
+    }
+    .weather-block{
+        left: calc(15% - 15vw);
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .weather-block{
+        left: calc(45% - 20vw);
+    }
 }
