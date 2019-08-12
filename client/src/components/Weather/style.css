@@ -13,7 +13,7 @@ h5 {
     /* background-color: hsla(0, 0%, 86%, 0.4); */
     display: inline;
     position: relative;
-    left: calc(40% - 20vw);
+    left: calc(40% - 21vw);
     text-align: center;
     font-size: .9rem;
 }
@@ -30,7 +30,7 @@ h5 {
 
 @media screen and (max-width: 768px){
     .weather-block{
-        left: calc(33% - 20vw);
+        left: calc(30% - 19vw);
     }
 }
 
@@ -45,6 +45,6 @@ h5 {
 
 @media screen and (min-width: 1200px){
     .weather-block{
-        left: calc(50% - 20vw);
+        left: calc(45% - 20vw);
     }
 }
