@@ -52,7 +52,7 @@ module.exports = {
     console.log(req.body.plantId)
     console.log(req.body._id)
     db.Plants
-      .findOneAndUpdate({_id: req.body.plantId}, {$push: {notes: req.body._id}})
+      .findOneAndUpdate({_id: req.body.plantId}, {$push: {notes: req.body}})
       .then(dbPlant => res.json(dbPlant))
       .catch(err => res.status(422).json(err))
   }

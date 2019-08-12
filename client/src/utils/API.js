@@ -34,5 +34,8 @@ export default {
     },
     logout: function(){
         return axios.get("/user/accounts/logout");
+    },
+    getPlantNotes: function(plantId){
+        return axios.get("/notes/"+plantId)
     }
 };
