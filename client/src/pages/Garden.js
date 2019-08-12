@@ -6,16 +6,45 @@ import GardenResult from "../components/GardenResult";
 import { MyVerticallyCenteredModal } from "../components/ButtonToolbar"
 import { Button, ButtonToolbar, Modal, } from 'react-bootstrap';
 import rose from "../components/GardenResult/rose.jpg";
+import { link } from "fs";
 // import Weather from "../components/Weather";
 
-
+function PlantNotes(props) {
+  return(
+   <div> {props.notes.map(note=>(<h1>{note.body}</h1>))}</div>
+  )
+}
 
 function Example(props) {
   const [show, setShow] = useState(false);
+  const [notes, setNotes] = useState({
+    notes: []
+  })
+  const [plantNotes, setPlantNotes] = useState({
+    plantNotes: []
+  })
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const [notes, setNotes] = useState({})
+  // const loadNotes = () => {
+  //   // API.getPlantNotes(event.target.id).then(res => console.log(res));
+  
+  // }
+
+  const handleClose = () => {
+    console.log(plantNotes)
+    setShow(false)
+  };
+  const handleShow = () => {
+    // loadNotes();
+    console.log(props.id);
+    API.getPlantNotes(props.id).then(res => {
+      console.log(res)
+      setPlantNotes(res.data)
+      
+      setShow(true);
+    })
+    
+  }
+
   const setNoteState = (event) => setNotes(event.target.value)
   const addNote = (event) => {
     API.postNote({
@@ -25,7 +54,12 @@ function Example(props) {
     .then(
       res => {
         console.log(res)
-        API.postNoteToPlant(res.data)
+        API.postNoteToPlant(res.data).then(res => {
+          console.log(res);
+          handleClose();
+          // API.getPlantNotes().then(res => console.log(res))
+          
+        })
       }
     )
     .catch(err => console.log(err))
@@ -45,7 +79,8 @@ function Example(props) {
             Notes and Tips
        </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body> 
+          <PlantNotes notes={plantNotes}/>
           <textarea style={{ width: "100%", margin: "15px" }} placeholder="Add a note..." onChange={setNoteState}></textarea>
         </Modal.Body>
         <Modal.Footer>
@@ -120,7 +155,7 @@ const Garden = () => {
               {plants.description}
               <MyVerticallyCenteredModal
                 show={modalShow}
-
+            
                 onHide={() => setModalShow(false)}
               />
             </ButtonToolbar>
