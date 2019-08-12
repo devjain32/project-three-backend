@@ -4,21 +4,26 @@ import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import GardenResult from "../components/GardenResult";
 import { MyVerticallyCenteredModal } from "../components/ButtonToolbar"
-<<<<<<< HEAD
-import { Button, ButtonToolbar, Modal, } from 'react-bootstrap';
-import rose from "../components/GardenResult/rose.jpg";
-import { link } from "fs";
-// import Weather from "../components/Weather";
-=======
 import  {  Button, ButtonToolbar, Modal, Jumbotron, Container, Row, Col  } from 'react-bootstrap';
 import Nav from "../components/Nav";
 // import rose from "../components/GardenResult/rose.jpg";
 import Weather from "../components/Weather";
->>>>>>> master
+
+function NotesBadge(props) {
+  return(
+    <div style={{border: "1px solid grey", height: "20%", width: "20%"}}>4 Tips</div>
+  )
+}
 
 function PlantNotes(props) {
   return(
-   <div> {props.notes.map(note=>(<h1>{note.body}</h1>))}</div>
+   <div> {props.notes.map(note=>(
+   <React.Fragment>
+     <p>{note.body}</p>
+     <hr/>
+    </React.Fragment>
+  ))}<hr></hr></div>
+   
   )
 }
 
@@ -165,6 +170,7 @@ const Garden = () => {
           <Col lg={4} md={6} sm={12}>
           <ListItem key={plants._id}>
             
+            <NotesBadge/>
             <h3 className="text-center">{plants.title}</h3>
             <ButtonToolbar >
 
@@ -172,7 +178,7 @@ const Garden = () => {
                 Modal
               </Button> */}
               
-              <Example img={plants.image}/>
+              <Example img={plants.image} id={plants._id}/>
               {/* {plants.description} */}
               <MyVerticallyCenteredModal
                 show={modalShow}
