@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import GardenResult from "../components/GardenResult";
 import { MyVerticallyCenteredModal } from "../components/ButtonToolbar"
+<<<<<<< HEAD
 import { Button, ButtonToolbar, Modal, } from 'react-bootstrap';
 import rose from "../components/GardenResult/rose.jpg";
 import { link } from "fs";
 // import Weather from "../components/Weather";
+=======
+import  {  Button, ButtonToolbar, Modal, Jumbotron, Container, Row, Col  } from 'react-bootstrap';
+import Nav from "../components/Nav";
+// import rose from "../components/GardenResult/rose.jpg";
+import Weather from "../components/Weather";
+>>>>>>> master
 
 function PlantNotes(props) {
   return(
@@ -139,30 +146,46 @@ const Garden = () => {
   const [modalShow, setModalShow] = React.useState(false);
   return (
     <div>
-      This is the garden. Click to go to plants <br />
-      <Link to="/plants">Click here</Link> <br />
+      <Nav />
+      {/* <Weather /> */}
+      <Jumbotron fluid style={{backgroundColor: "#142101"}}>
+        <Container>
+          <h1 className="text-center text-white">My Garden</h1>
+              <p className="text-center text-white">
+                Below are the plants you've saved to your garden. Make notes for each plant below by clicking on the image.
+              </p>
+        </Container>
+      </Jumbotron>
+      <Weather />
+      {/* This is the garden. Click to go to plants <br />
+      <Link to="/plants">Click here</Link> <br /> */}
       <List>
+        <Row>
         {state.plants.map(plants => (
+          <Col lg={4} md={6} sm={12}>
           <ListItem key={plants._id}>
-            <h3>{plants.title}</h3>
+            
+            <h3 className="text-center">{plants.title}</h3>
             <ButtonToolbar >
 
               {/* <Button variant="primary" onClick={() => setModalShow(true)}>
-               Modal
-             </Button> */}
-
-              <Example img={plants.image} id={plants._id} />
-              {plants.description}
+                Modal
+              </Button> */}
+              
+              <Example img={plants.image}/>
+              {/* {plants.description} */}
               <MyVerticallyCenteredModal
                 show={modalShow}
             
                 onHide={() => setModalShow(false)}
               />
             </ButtonToolbar>
+            
           </ListItem>
+          </Col>
         ))}
+        </Row>
       </List>
-      {/* <Weather /> */}
     </div>
   )
 };

@@ -1,0 +1,17 @@
+.weather {
+    width: 20vw;
+    height: 14vh;
+    padding: 15px 10px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: hsla(0, 0%, 86%, 0.4);
+}
+
+
+.info {
+    font-size: .9rem;
+}
+
+.hi, .lo{
+    font-size: .75em;
+}
