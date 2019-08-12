@@ -12,7 +12,7 @@ export default {
         return axios.get("/plants/api");
     },
     savePlant: function (id) {
-        return axios.post("/garden", id);
+        return axios.post("/garden/api", id);
     },
     register: function(regData) {
         return axios.post("/user/accounts/register", regData);
