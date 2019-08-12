@@ -31,3 +31,14 @@
 .list-overflow-container li:last-child {
   border-bottom: none;
 }
+
+.list-group-item {
+  background-color: whitesmoke;
+  height: 20rem;
+  width: 20rem;
+  margin: 2rem;
+}
+
+.list-group {
+  background-image: url("../UserForm/leaf-image.jpg")
+}

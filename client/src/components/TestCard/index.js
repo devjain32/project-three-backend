@@ -6,7 +6,7 @@ const TestCard = props => {
         <div className="card">
             <div className="card-body player">
                 <div className="article">
-                    <h3>No Plants to Display</h3>
+                    <h3 className="text-center">So sorry! We couldn't find that plant.</h3>
                 </div>
             </div>
         </div>

@@ -20,6 +20,7 @@ module.exports = {
         db.Garden
             .findOne({userId: req.user.email})
             .populate('plants')
+            .populate('plants.notes')
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
