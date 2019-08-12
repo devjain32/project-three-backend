@@ -7,7 +7,7 @@ const plantsSchema = new Schema({
   description: String,
   image: { type: String, trim: true },
   isSaved: {type: Boolean, default: false},
-  notes: [{ type: Schema.Types.ObjectId, ref: "Notes" }]
+  notes: {type: Array}
 });
 
 const Plants = mongoose.model("Plants", plantsSchema);

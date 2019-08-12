@@ -2,7 +2,7 @@ const router = require("express").Router();
 const notesController = require("../../controllers/notesController");
 const isAuthenticated = require("../../config/middleware/isAuthenticated")
 
-router.route("/findByPlant", isAuthenticated)
+router.route("/:plantId", isAuthenticated)
     .get(function (req, res, next) {
         console.log("findByPlants")
         next();
