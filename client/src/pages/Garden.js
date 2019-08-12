@@ -8,11 +8,15 @@ import  {  Button, ButtonToolbar, Modal, Jumbotron, Container, Row, Col  } from 
 import Nav from "../components/Nav";
 // import rose from "../components/GardenResult/rose.jpg";
 import Weather from "../components/Weather";
+import FontAwesome from "react-fontawesome";
 
 function NotesBadge(props) {
-  return(
-    <div style={{border: "1px solid grey", height: "20%", width: "20%"}}>4 Tips</div>
-  )
+  if(props.notes.length > 0){
+    return(
+      <FontAwesome name='sticky-note' size='2x' style={{ color: "green" }}/>
+    )
+  }
+  return(<div></div>)
 }
 
 function PlantNotes(props) {
@@ -169,8 +173,10 @@ const Garden = () => {
         {state.plants.map(plants => (
           <Col lg={4} md={6} sm={12}>
           <ListItem key={plants._id}>
+             
+              <NotesBadge notes={plants.notes} notesFound={false}/>
+              
             
-            <NotesBadge/>
             <h3 className="text-center">{plants.title}</h3>
             <ButtonToolbar >
 
