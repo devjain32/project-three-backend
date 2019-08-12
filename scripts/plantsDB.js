@@ -48,7 +48,7 @@ const plantsSeed = [
     {
         title: "Fig",
         description: "The common fig is a deciduous, small tree usually growing 10 to 30 feet tall, with large, lobed, deep green leaves that lend a tropical air to the plant. (There are other types of figs less commonly grown that have different pollination requirements. This information pertains to common figs.) The flowers of the common fig are all female and don't need pollinating to set fruit. The first crop of fruit in spring is called the 'breba' crop, maturing from buds set the previous season. The main crop that follows in the fall matures on the new growth made that summer. In cooler parts of its range, the breba crop is often lost to spring frosts.",
-        image: "https://garden.org/pics/2019-01-29/scvirginia/40a273.jpg",
+        image: "https://garden.org/pics/2013-07-17/TennesseeDave/d090c5.jpg",
         isSaved: false
     },
     {
@@ -72,7 +72,7 @@ const plantsSeed = [
     {
         title: "Okra",
         description: "Okra is considered a 'southern' crop because it thrive in hot weather. However, okra can be grown anywhere, although it bears most abundantly in regions with long, hot summers. Okra is often stewed with tomatoes, deep fried, pickled, boiled or steamed and served with butter, as well as eaten raw, fresh from the garden. Some folks don't like okra's gummy quality when it's boiled or steamed, and it seems to be more popular when combined with other vegetables, fried or pickled.",
-        image: "https://garden.org/pics/2012-07-20/farmerdill/6a066c.jpg",
+        image: "https://garden.org/pics/2014-11-17/bamira/413566.jpg",
         isSaved: false
     },
     {

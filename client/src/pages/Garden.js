@@ -53,8 +53,8 @@ function Example(props) {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
          </Button>
-          <Button variant="primary" onClick={addNote} id={props.id}>
-            Save Changes
+          <Button variant="primary" onClick={addNote} id={props.id} style={{backgroundColor:"#142101", borderColor:"#142101"}}>
+            Add Note
          </Button>
         </Modal.Footer>
       </Modal>
@@ -121,17 +121,17 @@ const Garden = () => {
       <List>
         <Row>
         {state.plants.map(plants => (
-          <Col lg={4} md={6} sm={12}>
+          <Col lg={4} md={6} sm={12} key={plants._id}>
           <ListItem key={plants._id}>
             
-            <h3 className="text-center">{plants.title}</h3>
+            <h3 className="text-center" key={plants._id}>{plants.title}</h3>
             <ButtonToolbar >
 
               {/* <Button variant="primary" onClick={() => setModalShow(true)}>
                 Modal
               </Button> */}
               
-              <Example img={plants.image}/>
+              <Example img={plants.image} key={plants._id}/>
               {/* {plants.description} */}
               <MyVerticallyCenteredModal
                 show={modalShow}
