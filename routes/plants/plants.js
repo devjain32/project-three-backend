@@ -6,13 +6,13 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 //   .get(plantsController.findAll)
   // .post(plantsController.create);
   
-  router.route("/:query", isAuthenticated)
+  router.route("/api/:query", isAuthenticated)
   .get(
       // console.log("query:", req.params.query)
       plantsController.findOne
   )
 
-router.route("/", isAuthenticated)
+router.route("/api", isAuthenticated)
   .get(function(req, res, next){
     console.log(req.user),
     next();
@@ -23,7 +23,7 @@ router.route("/", isAuthenticated)
 
   )
 
-router.route("/notes", isAuthenticated)
+router.route("/api/notes", isAuthenticated)
   .post(function(req, res, next) {
     console.log("plants notes", req.body._id);
     next();
