@@ -11,7 +11,10 @@ const Weather = () => {
     const [weather, setWeather] = useState([])
     useEffect(()=> {
         const fetchWeather = async () =>{
-            const results = await API.getWeather(co.latitude, co.longitude);
+            const results = await API.getWeather(
+                co.latitude ? co.latitude : 30.29006000000004, 
+                co.longitude ? co.longitude : -97.74503999999996
+            );
     
             setWeather(results.data);
         };
@@ -29,20 +32,20 @@ const Weather = () => {
     let humid;
     let icon;
     if(weather.weather){
-        console.log(weather.weather[0])
+        // console.log(weather.weather[0])
         wea = weather.weather[0].main;
         th = weather.weather[0].description;
         icon = weather.weather[0].icon;
     }
     console.log(weather.main);
     if(weather.main){
-        console.log(weather.main.temp)
+        // console.log(weather.main.temp)
         er = Math.round(((weather.main.temp - 273.15) * 9 / 5 + 32));
         max = Math.round(((weather.main.temp_max - 273.15) * 9 / 5 + 32));
         min = Math.round(((weather.main.temp_min - 273.15) * 9 / 5 + 32));
         humid = weather.main.humidity;
     }
-    console.log(weather.main);
+    // console.log(weather.main);
 
     return (
         <div className="weather">
