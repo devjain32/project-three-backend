@@ -34,7 +34,7 @@ router.route("/api/notes", isAuthenticated)
 
 
 router
-  .route("/save/:query")
+  .route("/api/save/:query")
   // .get(plantsController.findById)
   .put(plantsController.update)
   // .delete(plantsController.remove);
