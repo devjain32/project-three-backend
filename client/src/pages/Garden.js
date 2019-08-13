@@ -13,7 +13,7 @@ import FontAwesome from "react-fontawesome";
 function NotesBadge(props) {
   if(props.notes.length > 0){
     return(
-      <FontAwesome name='sticky-note' size='2x' style={{ color: "green" }}/>
+      <FontAwesome name='sticky-note' size='2x' style={{ color: "#224922" }}/>
     )
   }
   return(<div></div>)
@@ -30,6 +30,8 @@ function PlantNotes(props) {
    
   )
 }
+
+
 
 function Example(props) {
   const [show, setShow] = useState(false);
@@ -176,8 +178,10 @@ const Garden = () => {
              
               <NotesBadge notes={plants.notes} notesFound={false}/>
               
+              <FontAwesome name='times' size='2x' style={{ color: "#ed5d15" }} className="float-right" onClick=""/>
             
             <h3 className="text-center">{plants.title}</h3>
+
             <ButtonToolbar >
 
               {/* <Button variant="primary" onClick={() => setModalShow(true)}>

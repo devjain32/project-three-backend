@@ -9,7 +9,8 @@ class Login extends Component {
   state = {
       email: "",
       password: "",
-      isLoggedIn: false
+      isLoggedIn: false,
+      text: "I need to sign up!"
   };
 
   handleChange = event => {
@@ -22,7 +23,8 @@ class Login extends Component {
   setLogin(email){
     this.setState({
       email: email,
-      isLoggedIn: true
+      isLoggedIn: true,
+
     });
   }
 
@@ -51,10 +53,11 @@ class Login extends Component {
                   <Col size="12">
                     <div className="register-form">
                         <UserForm 
-                        title="Login"
+                        title="Log In"
                         handleFormSubmit={this.handleFormSubmit}
                         handleChange={this.handleChange}
                         isLoggedIn={this.state.isLoggedIn}
+                        text={this.state.text}
                         />
                         <Link to="/" className="FormField__Link">I need to sign up!</Link>
                     </div>

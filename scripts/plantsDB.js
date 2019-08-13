@@ -10,9 +10,9 @@ mongoose.connect(
 
 const plantsSeed = [
     {
-        title: "Daylily",
-        description: "Plant breeders continue to expand the color palette available in daylilies, which now includes yellow, orange, red, white, and purple flowers. Varieties with muliticolored blooms, often with a contrasting 'eye,' or center, are increasingly popular. Most daylilies have a distinct, three- to four-week bloom period in early to late summer, although some varieties continue to bloom sporadically all season long. Most daylilies bloom during the day (diurnal), but some open in the evening (nocturnal). Individual flowers last just one day but new ones open daily for the duration of the bloom time. Foliage height ranges from 1 to 4 feet, depending on variety. Flower stalks, or scapes, on the tallest varieties can reach 6 feet. Flowers are edible.",
-        image: "https://garden.org/pics/2018-09-29/Betja/60bcb6.jpg",
+        title: "Aloe",
+        description: "Most aloes are easy plants given a bright, warm location and water in moderation. Aloes require bright light, and most can take full sun in mild climates. Indoor aloes do best when placed right by an unobstructed sunny window. They prefer good drainage, especially in containers, and regular water when the soil is going dry, but not sooner. Landscape aloes are quite drought tolerant when established but will respond favorably to occasional water. Aloes from dry climates may be sensitive to excess moisture and prone to rot.",
+        image: "https://garden.org/pics/2017-12-03/Baja_Costero/05d287.jpg",
         isSaved: false
     },
     {
@@ -34,6 +34,18 @@ const plantsSeed = [
         isSaved: false
     },
     {
+        title: "Caladium",
+        description: "Any garden with a shady location has a perfect spot for caladiums. These tropical tubers, most of them varieties derived from Caladium bicolor, are grown for their dramatic summer foliage. They are naturals in beds with ferns or coleus, in pots to accent shady spots, or used as indoor houseplants.",
+        image: "https://garden.org/pics/2018-09-13/plantladylin/7d38f7.jpg",
+        isSaved: false
+    },
+    {
+        title: "Carrot",
+        description: "Select a site with full sun and deep, well-drained soil. Prepare the garden bed by using a garden fork or tiller to loosen the soil to a depth of 12 to 15 inches, then mix in a 2- to 4-inch layer of compost. Choose varieties according to use and when you want to harvest. To prolong the harvest, stagger your carrot seed starting, beginning three to four weeks before the average last spring frost date.",
+        image: "https://garden.org/pics/2016-01-07/farmerdill/1edf2d.jpg",
+        isSaved: false
+    },
+    {
         title: "Cilantro",
         description: "Coriandrum sativum goes by many names: cilantro, coriander, Mexican or Chinese parsley. The green, leafy part is the herb, called cilantro, is often the 'secret ingredient' (along with cumin) that makes Mexican food taste authentic. The dried seedpod is known as coriander and is usually used as a spice in baking and desserts. Native to Egypt, cilantro is one of the most ancient herbs still cultivated. This annual plant does best in cool weather. Cilantro grows 2 to 3 feet tall and thrives in moderately rich, light, well-drained soil in full to partial sun.",
         image: "https://garden.org/pics/2019-01-16/queen1694/e5d058.jpg",
@@ -46,15 +58,39 @@ const plantsSeed = [
         isSaved: false
     },
     {
+        title: "Daylily",
+        description: "Plant breeders continue to expand the color palette available in daylilies, which now includes yellow, orange, red, white, and purple flowers. Varieties with muliticolored blooms, often with a contrasting 'eye,' or center, are increasingly popular. Most daylilies have a distinct, three- to four-week bloom period in early to late summer, although some varieties continue to bloom sporadically all season long. Most daylilies bloom during the day (diurnal), but some open in the evening (nocturnal). Individual flowers last just one day but new ones open daily for the duration of the bloom time. Foliage height ranges from 1 to 4 feet, depending on variety. Flower stalks, or scapes, on the tallest varieties can reach 6 feet. Flowers are edible.",
+        image: "https://garden.org/pics/2018-09-29/Betja/60bcb6.jpg",
+        isSaved: false
+    },
+    {
+        title: "Dogwood",
+        description: "The most common dogwood, Cornus florida, is a flowering tree that grows 20 to 40 feet tall and wide at maturity. Flower colors include pink, red, rose, and white, depending on the variety. Unfortunately, it is susceptible to a number of insect and disease problems, especially in recent years. Look for disease-resistant varieties, or consider planting Kousa dogwood (C. kousa) instead. The most common shrub dogwoods vary in size from 6 to 20 feet tall and wide depending on species and variety. There is a spreading, ground cover form that only grows 3 to 9 inches tall. Some dogwoods have colorful bark -- yellow, red, or orange -- providing winter interest. Most dogwoods bloom in early spring to midsummer, depending on the species. Many produce fruits that are ornamental and provide food for birds. Hardiness varies among dogwoods, so use care when choosing plants.",
+        image: "https://garden.org/pics/2015-05-26/krobra/65197d.jpg",
+        isSaved: false
+    },
+    {
         title: "Fig",
         description: "The common fig is a deciduous, small tree usually growing 10 to 30 feet tall, with large, lobed, deep green leaves that lend a tropical air to the plant. (There are other types of figs less commonly grown that have different pollination requirements. This information pertains to common figs.) The flowers of the common fig are all female and don't need pollinating to set fruit. The first crop of fruit in spring is called the 'breba' crop, maturing from buds set the previous season. The main crop that follows in the fall matures on the new growth made that summer. In cooler parts of its range, the breba crop is often lost to spring frosts.",
         image: "https://garden.org/pics/2013-07-17/TennesseeDave/d090c5.jpg",
         isSaved: false
     },
     {
+        title: "Gardenia",
+        description: "Plant gardenias near a deck or window where you can enjoy the flowers' fragrance. The plants grow from 2 to 8 feet tall and wide, depending on the variety. Most gardenias grow into a round shape with dark green, glossy leaves and white, fragrant flowers that bloom from mid-spring into summer. Avoid planting gardenias near a concrete walk or foundation where the pH maybe too high for good growth.",
+        image: "https://garden.org/pics/2018-08-27/AngieVanIsld/dd407b.jpg",
+        isSaved: false
+    },
+    {
         title: "Garlic",
         description: "You can buy garlic bulbs or sets from garden stores or mail-order sources. There are three types of garlic: Elephant, hardneck and softneck. ,Elephant, garlic is actually a bulbing leek and a good variety to look for if you want large, mild-flavored clusters. Elephant bulbs can weigh as much as 1lb. with 4-6 large cloves. Hardneck garlic will produce bulbs of 6-12 cloves while softneck produces 8-24 smaller cloves. Hardneck garlic does best in cold winter areas, while softneck garlic is a good choice for mild winter climates.",
         image: "https://garden.org/pics/2014-06-03/dave/5c9ed9.jpg",
+        isSaved: false
+    },
+    {
+        title: "Hibiscus",
+        description: "Hibiscus are deciduous shrubs with dark green leaves; the plants can grow to 15 feet tall in frost-free areas. Flowers may be up to 6 inches diameter, with colors ranging from yellow to peach to red. Hibiscus can be planted singly or grown as a hedge plant; they can also be pruned into a single-stemmed small tree. The flowers are attractive to butterflies and hummingbirds. Select a site with full sun and well-drained soil. Hibiscus also adapt well to growing in containers.",
+        image: "https://garden.org/pics/2011-09-09/wren/9d5ca7.jpg",
         isSaved: false
     },
     {
@@ -88,6 +124,12 @@ const plantsSeed = [
         isSaved: false
     },
     {
+        title: "Peony",
+        description: "Peony varieties with huge, double flowers will be the focal point of the garden when they bloom in early summer. Single-flowered types are more subtle and combine well with other perennials. Flower colors include pink, red, white, and yellow, and the plants grow 18 inches to 3 feet tall, depending on the variety. Peonies make an attractive low hedge. However, they can take up to 3 years to mature, and don't perform well in hot summer climates. Select a site with full sun and moist, well-drained soil.",
+        image:"https://garden.org/pics/2016-11-15/Orsola/f9ee14.jpg",
+        isSaved: false
+    },
+    {
         title: "Potato",
         description: "There has a resurgence of interest in home-grown potatoes, especially now that they are available in a wide variety of colors, shapes, and tastes. Most gardeners plant 'seed' potatoes, a confusing term since these aren't seeds at all but rather small potato tubers. For best results, purchase certified seed potatoes; these will have been inspected to ensure they are free from disease. Avoid planting supermarket potatoes, because they may have been treated with a growth inhibitor to prevent them from sprouting. Consider trying some unusual varieties, such as fingerlings or blue potatoes.",
         image: "https://garden.org/pics/2015-05-28/Heidlberg/58b50c.jpg",
@@ -97,6 +139,12 @@ const plantsSeed = [
         title: "Radish",
         description: "Radish varieties vary in size, color, shape, and taste --some are very pungent, while others are quite mild. Plant short-season or spring varieties in spring or fall, depending on local temperatures. Ideal growing temperature is 60 degrees F to 65 degrees F. Cooler or warmer weather results in harsher-tasting radishes. Plants will mature in 18 to 45 days, depending on variety. Plant winter types in the summer or fall, depending on the variety; they mature in 45 to 70 days.",
         image: "https://garden.org/pics/2014-10-20/farmerdill/3f5e40.jpg",
+        isSaved: false
+    },
+    {
+        title: "Rose",
+        description: "Ideally, roses should be grown in sunny and open locations, with good air circulation at the base of the plant, in rich and well-draining soil. Some roses, notably the old ramblers and the modern hybrid musks, can tolerate some shade in any zone and may even prefer shade in the hottest zones. Roses require 1-2 inches of water a week to thrive. In dry climates, this water has to be supplied by the gardener, and although overhead watering was once discouraged, it is the logical choice. The water supplied by a gardener supplements rain, which falls from overhead. Overhead watering keeps the foliage and blooms clean, retards powdery mildew, and repels some pests.",
+        image: "https://garden.org/pics/2014-04-26/dave/99f177.jpg",
         isSaved: false
     },
     {

@@ -60,7 +60,7 @@ class Nav extends Component {
           <ul className="navbar-nav ml-auto">
             <NavItem path="/plants" name="Home" />
             <NavItem path="/garden" name="My Garden" />
-            <NavItem path="/accounts" name="Community Garden" />
+            {/* <NavItem path="/accounts" name="Community Garden" /> */}
             <NavItem path="/" name="Logout" onClick={() => this.handleLogout} />
           </ul>
         </div>
