@@ -139,6 +139,21 @@ const Garden = () => {
       .catch(err => console.log(err));
   }
 
+  const cutPlant = event => {
+    let plant = ({_id: event.target.id})
+    API.cutPlant(plant)
+      .then(res => 
+        {setState({plants: res.data})
+        console.log(res)},
+        console.log(`${plant} cut from garden`))
+      .catch(err => console.log(err));
+  }
+
+  const handleDelete = event => {
+    event.preventDefault();
+    cutPlant(event);
+  }
+
   // const loadPlants = () => {
   //   API.loadPlants()
   //   .then(res => setState({...state, plants: res.data}))
