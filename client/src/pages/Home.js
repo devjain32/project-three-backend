@@ -5,6 +5,7 @@ import SearchForm from "../components/SearchForm";
 import API from "../utils/API";
 // import SearchResult from "../components/SearchResult";
 import TestCard from "../components/TestCard";
+import AddPlantCard from "../components/AddPlantCard";
 
 
 
@@ -43,6 +44,7 @@ class Home extends Component {
   }
   
   handleChange = event => {
+    document.querySelector(".add-plant-div").style.display="block";
     const { name, value } = event.target;
     this.setState({
       [name]: value
@@ -50,6 +52,7 @@ class Home extends Component {
   };
 
   handleFormSubmit = event => {
+    document.querySelector(".add-plant-div").style.display="none";
     console.log('handle form submit called');
     event.preventDefault();
     API.savePlant(this.state.search)
@@ -69,10 +72,14 @@ class Home extends Component {
     console.log(this.state.plants);
     console.log(event.target.id);
     const plantObj = {_id: event.target.id}
+    event.target.style.backgroundColor = 'salmon';
+    event.target.textContent = 'Added to Garden';
+    console.log(event.target)
     API.savePlant(plantObj).then(res => {
       // Update the addedPlants array in the state
       // e.g. this.setState({ addedPlants: res.data.something });
       console.log(res);
+      
     })
     // let savedPlants = this.state.plants.filter(plant => plant.id === event.target.id)
     // savedPlants = savedPlants[0];
@@ -94,7 +101,9 @@ class Home extends Component {
         handleFormSubmit={this.handleFormSubmit}
         handleChange={this.handleChange}
         />
+       
         <TestCard 
+        loadPlants ={this.loadPlants}
         plants={this.state.plants}
         addedPlants={this.state.addedPlants}
         handleSavedButton={this.handleSavedButton}

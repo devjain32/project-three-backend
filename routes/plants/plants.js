@@ -16,12 +16,8 @@ router.route("/api", isAuthenticated)
   .get(function(req, res, next){
     console.log(req.user),
     next();
-  }, plantsController.findAll
-      // res.send("byyyeeee")
-
-      // console.log("+++++++++++++++++++++++++++++");
-
-  )
+  }, plantsController.findAll)
+  .post(plantsController.create)
 
 router.route("/api/notes", isAuthenticated)
   .post(function(req, res, next) {
