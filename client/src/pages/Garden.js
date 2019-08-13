@@ -13,7 +13,7 @@ import FontAwesome from "react-fontawesome";
 function NotesBadge(props) {
   if(props.notes.length > 0){
     return(
-      <FontAwesome name='sticky-note' size='2x' style={{ color: "green" }}/>
+      <FontAwesome name='sticky-note' size='2x' style={{ color: "#224922" }}/>
     )
   }
   return(<div></div>)
@@ -30,6 +30,8 @@ function PlantNotes(props) {
    
   )
 }
+
+
 
 function Example(props) {
   const [show, setShow] = useState(false);
@@ -103,8 +105,8 @@ function Example(props) {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
          </Button>
-          <Button variant="primary" onClick={addNote} id={props.id}>
-            Save Changes
+          <Button variant="primary" onClick={addNote} id={props.id} style={{backgroundColor:"#142101", borderColor:"#142101"}}>
+            Add Note
          </Button>
         </Modal.Footer>
       </Modal>
@@ -186,13 +188,15 @@ const Garden = () => {
       <List>
         <Row>
         {state.plants.map(plants => (
-          <Col lg={4} md={6} sm={12}>
+          <Col lg={4} md={6} sm={12} key={plants._id}>
           <ListItem key={plants._id}>
              
               <NotesBadge notes={plants.notes} notesFound={false}/>
               
+              <FontAwesome name='times' size='2x' style={{ color: "#ed5d15" }} className="float-right" onClick={() => handleDelete}/>
             
             <h3 className="text-center">{plants.title}</h3>
+
             <ButtonToolbar >
 
               {/* <Button variant="primary" onClick={() => setModalShow(true)}>

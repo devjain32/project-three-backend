@@ -5,7 +5,7 @@
 
 .garden {
     /* margin: 6% 12%; */
-    flex-grow:1
+    flex-grow:1;
 }
 
 
@@ -15,9 +15,7 @@
     backface-visibility: hidden;
     transition-duration: 0.3s;
     transition-property: transform;
-    
-    
-    
+    /* object-fit: cover; */
 }
 
 #rose:hover {
@@ -27,8 +25,8 @@
 
 .parent{
     display:flex;
-    
-    
 }
+
+
 
 

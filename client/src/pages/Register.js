@@ -9,7 +9,8 @@ class Register extends Component {
   state = {
       email: "",
       password: "",
-      isReg: false
+      isReg: false,
+      text: "I'm already a member."
   };
 
   handleChange = event => {
@@ -64,9 +65,10 @@ class Register extends Component {
                   <Col size="12">
                     <div className="register-form">
                         <UserForm 
-                        title="Sign up"
+                        title="Sign Up"
                         handleFormSubmit={this.handleFormSubmit}
                         handleChange={this.handleChange}
+                        text={this.state.text}
                         />
                         <Link to="/login" className="FormField__Link">I'm already a member.</Link>
                     </div>

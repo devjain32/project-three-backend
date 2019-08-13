@@ -1,6 +1,6 @@
 import React from "react";
-// import { Link } from 'react-router-dom';
 import "./style.css";
+import { Link } from 'react-router-dom';
 
 const UserForm = props => {
     return (
@@ -38,6 +38,7 @@ const UserForm = props => {
                     onClick={props.handleFormSubmit}>
                     Submit
                 </button>
+                <Link to="/" className="FormField__Link" style={{color: "white"}}>{props.text}</Link>
             </div>
         </form>
         </div>

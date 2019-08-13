@@ -8,7 +8,7 @@ module.exports = {
             .findOneAndUpdate({userId: req.user.email}, {$push: {plants: req.body._id}})
             .then(dbGarden => 
                 console.log("updated garden", dbGarden),
-                res.json(dbGarden)
+                // res.json(dbGarden)
             )
             .catch(err => res.status(422).json(err));
     },
@@ -42,7 +42,8 @@ module.exports = {
                 {safe: true, upsert: true})
                 .then(dbGarden => 
                     console.log("updated garden", dbGarden),
-                    res.json(dbGarden))
+                    // res.json(dbGarden)
+                )
                 .catch(err => res.status(422).json(err));
     }
 };
