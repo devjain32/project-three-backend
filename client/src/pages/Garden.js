@@ -11,7 +11,7 @@ import Weather from "../components/Weather";
 import FontAwesome from "react-fontawesome";
 
 function NotesBadge(props) {
-  if(props.notes.length > 0){
+  if(props.notes){
     return(
       <FontAwesome name='sticky-note' size='2x' style={{ color: "#224922" }}/>
     )
@@ -140,17 +140,20 @@ const Garden = () => {
   }
 
   const cutPlant = event => {
-    let plant = ({_id: event.target.id})
+    let plant = {id: event.target.id}
     API.cutPlant(plant)
       .then(res => 
         {setState({plants: res.data.plants})
-        console.log(res)},
-        console.log(`${plant} cut from garden`))
+        console.log(res.data)},
+        console.log(`${plant.id} cut from garden`))
       .catch(err => console.log(err));
+    loadGarden();
   }
 
   const handleDelete = event => {
+    console.log("clicked x")
     event.preventDefault();
+    console.log(event.target.id)
     cutPlant(event);
   }
 
@@ -193,7 +196,13 @@ const Garden = () => {
              
               <NotesBadge notes={plants.notes} notesFound={false}/>
               
-              <FontAwesome name='times' size='2x' style={{ color: "#ed5d15" }} className="float-right" onClick={() => handleDelete}/>
+              <FontAwesome 
+                name='times' 
+                size='2x' 
+                id={plants._id}
+                style={{ color: "#ed5d15" }} 
+                className="float-right" 
+                onClick={event => handleDelete(event)}/>
             
             <h3 className="text-center">{plants.title}</h3>
 

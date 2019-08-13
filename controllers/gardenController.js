@@ -7,8 +7,8 @@ module.exports = {
         db.Garden
             .findOneAndUpdate({userId: req.user.email}, {$push: {plants: req.body._id}})
             .then(dbGarden => 
-                console.log("updated garden", dbGarden),
-                // res.json(dbGarden)
+                res.json(dbGarden),
+                console.log("updated garden")
             )
             .catch(err => res.status(422).json(err));
     },
@@ -35,14 +35,14 @@ module.exports = {
         console.log(req.user)
         console.log(req.user.email)
         console.log(req.body)
-        console.log(req.body._id)
+        console.log(req.body.id)
         db.Garden
             .findOneAndUpdate({userId: req.user.email},
-                {$pull: {plants: req.body._id}},
+                {$pull: {plants: req.body.id}},
                 {safe: true, upsert: true})
                 .then(dbGarden => 
-                    console.log("updated garden", dbGarden),
-                    // res.json(dbGarden)
+                    res.json(dbGarden),
+                    console.log("updated garden")
                 )
                 .catch(err => res.status(422).json(err));
     }
