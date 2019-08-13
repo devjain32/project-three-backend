@@ -38,7 +38,7 @@ class AddPlantCard extends Component {
             body: data
         }).then(response => {
             console.log(response)
-            window.location.reload();
+          
         })
     }
 

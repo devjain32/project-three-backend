@@ -18,7 +18,7 @@ const s3Config = {
   secretAccessKey: process.env.SECRET_ACCESS_KEY,
   Bucket: BUCKET_NAME
 }
-
+console.log("hello");
 const S3 = new AWS.S3(s3Config);
 
 app.use(fileupload());
