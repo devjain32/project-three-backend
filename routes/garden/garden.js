@@ -38,7 +38,6 @@ router.route("/api/remove", isAuthenticated)
         console.log("init pop")
         next();
     },gardenController.pop, function(req, res){
-        console.log("pop pop", req.user)
-        res.json(req.user)
+        console.log("pop pop");
     })
 module.exports = router;
