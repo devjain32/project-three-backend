@@ -26,5 +26,18 @@ module.exports = {
             .create({userId: req.body.email})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+    pop: function(req, res){
+        console.log(req.user)
+        console.log(req.user.email)
+        console.log(req.body)
+        console.log(req.body._id)
+        db.Garden
+            .findOneAndUpdate({userId: req.user.email},
+                {$pull: {plants: req.body._id}},
+                {safe: true, upsert: true})
+                .then(dbGarden => 
+                    console.log("updated garden", dbGarden))
+                .catch(err => res.status(422).json(err));
     }
 };

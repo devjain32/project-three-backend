@@ -15,17 +15,12 @@ router.route("/api")
     )
     .get(gardenController.find)
 
-
-
-
 // router.route("/:email", isAuthenticated)
 //     .get(function(req, res, next){
 //         console.log("In the garden!");
 //         console.log(req.user)
 //         next();
 //     }, gardenController.find);
-
- 
     
 router.route("/create", isAuthenticated)
     .post(function(req, res, next){
@@ -36,4 +31,14 @@ router.route("/create", isAuthenticated)
         res.json(req.user)
     });
 
+router.route("/api/remove", isAuthenticated)
+    .put(function(req, res, next){
+        console.log(req.user)
+        console.log(req.body._id)
+        console.log("init pop")
+        next();
+    },gardenController.pop, function(req, res){
+        console.log("pop pop", req.user)
+        res.json(req.user)
+    })
 module.exports = router;
