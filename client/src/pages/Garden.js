@@ -4,12 +4,6 @@ import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import GardenResult from "../components/GardenResult";
 import { MyVerticallyCenteredModal } from "../components/ButtonToolbar"
-<<<<<<< HEAD
-import  {  Button, ButtonToolbar, Modal } from 'react-bootstrap';
-
-// import Weather from "../components/Weather";
-
-=======
 import  {  Button, ButtonToolbar, Modal, Jumbotron, Container, Row, Col  } from 'react-bootstrap';
 import Nav from "../components/Nav";
 // import rose from "../components/GardenResult/rose.jpg";
@@ -24,7 +18,6 @@ function NotesBadge(props) {
   }
   return(<div></div>)
 }
->>>>>>> master
 
 function PlantNotes(props) {
   return(
