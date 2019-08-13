@@ -24,13 +24,22 @@ class Home extends Component {
   
   loadPlants = () => {
     // This will probably need to change too, but we'll get to that
-    API.loadPlants().then(res => {
-      console.log(res.data)
-      this.setState({plants: res.data, search: "", /* addedPalnts: res.data.something */ })
-    }
+
+    API.loadGarden().then(res => {
       
-      )
- 
+      const plantsArry = [];
+      for(var i=0; i<res.data.plants.length; i++){
+        plantsArry.push(res.data.plants[i]._id)
+
+      } 
+      console.log("garden plants", plantsArry)
+      this.setState({addedPlants: plantsArry})
+      API.loadPlants().then(res => {
+        console.log(res.data)
+        this.setState({plants: res.data, search: "", /* addedPalnts: res.data.something */ })
+      })
+    })
+    
   }
   
   handleChange = event => {
