@@ -38,7 +38,7 @@ export default {
     getPlantNotes: function(plantId){
         return axios.get("/notes/"+plantId)
     },
-    cutPlant: function(){
-        return axios.put("/garden/api/remove");
+    cutPlant: function(id){
+        return axios.put("/garden/api/remove", id);
     }
 };
