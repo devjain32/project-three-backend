@@ -30,13 +30,9 @@ router.route("/api/notes", isAuthenticated)
   }, plantsController.findOneAndUpdate)
 
 
-
-
-
 router
   .route("/api/save/:query")
   // .get(plantsController.findById)
-  .put(plantsController.update)
-  // .delete(plantsController.remove);
+  .put(plantsController.update);
 
 module.exports = router;
