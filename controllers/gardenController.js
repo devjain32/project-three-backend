@@ -6,10 +6,14 @@ module.exports = {
         console.log("*****************", req.body)
         db.Garden
             .findOneAndUpdate({userId: req.user.email}, {$push: {plants: req.body._id}})
-            .then(dbGarden => console.log("updated garden", dbGarden))
+            .then(dbGarden => 
+                console.log("updated garden", dbGarden),
+                res.json(dbGarden)
+            )
             .catch(err => res.status(422).json(err));
     },
     find: function(req, res){
+        console.log("========load garden called==========")
         console.log(req.user)
         console.log(req.body)
         console.log("hello");
@@ -37,7 +41,8 @@ module.exports = {
                 {$pull: {plants: req.body._id}},
                 {safe: true, upsert: true})
                 .then(dbGarden => 
-                    console.log("updated garden", dbGarden))
+                    console.log("updated garden", dbGarden),
+                    res.json(dbGarden))
                 .catch(err => res.status(422).json(err));
     }
 };

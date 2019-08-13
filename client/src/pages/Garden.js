@@ -143,8 +143,8 @@ const Garden = () => {
     let plant = ({_id: event.target.id})
     API.cutPlant(plant)
       .then(res => 
-        {setState({plants: res.data})
-        console.log(res.data.plants)},
+        {setState({plants: res.data.plants})
+        console.log(res)},
         console.log(`${plant} cut from garden`))
       .catch(err => console.log(err));
   }
