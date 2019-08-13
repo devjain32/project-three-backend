@@ -101,7 +101,7 @@ function Example(props) {
         </Modal.Header>
         <Modal.Body> 
           <PlantNotes notes={plantNotes}/>
-          <textarea style={{ width: "100%", margin: "15px" }} placeholder="Add a note..." onChange={setNoteState}></textarea>
+          <textarea style={{ width: "100%" }} placeholder="Add a note..." onChange={setNoteState}></textarea>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
