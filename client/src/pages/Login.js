@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { Col, Row, Container } from "../components/Grid";
 import UserForm from "../components/UserForm";
 import Header from "../components/Header";
@@ -10,6 +10,7 @@ class Login extends Component {
       email: "",
       password: "",
       isLoggedIn: false,
+      form: "/",
       text: "I need to sign up!"
   };
 
@@ -57,9 +58,10 @@ class Login extends Component {
                         handleFormSubmit={this.handleFormSubmit}
                         handleChange={this.handleChange}
                         isLoggedIn={this.state.isLoggedIn}
+                        form={this.state.form}
                         text={this.state.text}
                         />
-                        <Link to="/" className="FormField__Link">I need to sign up!</Link>
+                        {/* <Link to="/" className="FormField__Link">I need to sign up!</Link> */}
                     </div>
                     {
                       this.renderRedirect(this.state.email)
