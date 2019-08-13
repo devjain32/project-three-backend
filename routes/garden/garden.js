@@ -32,9 +32,10 @@ router.route("/create", isAuthenticated)
     });
 
 router.route("/api/remove", isAuthenticated)
-    .put(function(req, res, next){
+    .post(function(req, res, next){
         console.log(req.user)
-        console.log(req.body._id)
+        console.log(req.body)
+        console.log(req.body.id)
         console.log("init pop")
         next();
     },gardenController.pop, function(req, res){
