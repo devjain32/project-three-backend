@@ -6,10 +6,14 @@ module.exports = {
         console.log("*****************", req.body)
         db.Garden
             .findOneAndUpdate({userId: req.user.email}, {$push: {plants: req.body._id}})
-            .then(dbGarden => console.log("updated garden", dbGarden))
+            .then(dbGarden => {
+                // Have this send pack the array of plants to the React app, e.g. res.json(something)
+                console.log("updated garden", dbGarden)
+            })
             .catch(err => res.status(422).json(err));
     },
     find: function(req, res){
+        console.log("========load garden called==========")
         console.log(req.user)
         console.log(req.body)
         console.log("hello");
