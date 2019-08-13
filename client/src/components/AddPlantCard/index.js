@@ -16,6 +16,8 @@ class AddPlantCard extends Component {
         this.setState({plantDesc: event.target.value})
     }
 
+
+
   uploadFile = () => {
         console.log("file upload")
         // const node = ReactDOM.findDOMNode(this);
@@ -34,7 +36,10 @@ class AddPlantCard extends Component {
         fetch("/upload", {
             method: "POST",
             body: data
-        }).then(response => console.log(response))
+        }).then(response => {
+            console.log(response)
+            window.location.reload();
+        })
     }
 
     render(){

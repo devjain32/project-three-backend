@@ -72,10 +72,14 @@ class Home extends Component {
     console.log(this.state.plants);
     console.log(event.target.id);
     const plantObj = {_id: event.target.id}
+    event.target.style.backgroundColor = 'salmon';
+    event.target.textContent = 'Added to Garden';
+    console.log(event.target)
     API.savePlant(plantObj).then(res => {
       // Update the addedPlants array in the state
       // e.g. this.setState({ addedPlants: res.data.something });
       console.log(res);
+      
     })
     // let savedPlants = this.state.plants.filter(plant => plant.id === event.target.id)
     // savedPlants = savedPlants[0];
@@ -99,6 +103,7 @@ class Home extends Component {
         />
        
         <TestCard 
+        loadPlants ={this.loadPlants}
         plants={this.state.plants}
         addedPlants={this.state.addedPlants}
         handleSavedButton={this.handleSavedButton}

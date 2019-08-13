@@ -16,7 +16,7 @@ const TestCard = props => {
             <div className="card-body">
                 <div className="card-title">
                     <h3> </h3>
-                    <AddPlantCard/>
+                    <AddPlantCard loadPlants={props.loadPlants}/>
         {props.plants.map(plant => {
             return (
                 <div className="card mb-3">
