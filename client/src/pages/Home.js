@@ -5,6 +5,7 @@ import SearchForm from "../components/SearchForm";
 import API from "../utils/API";
 // import SearchResult from "../components/SearchResult";
 import TestCard from "../components/TestCard";
+import AddPlantCard from "../components/AddPlantCard";
 
 
 
@@ -32,6 +33,7 @@ class Home extends Component {
   }
   
   handleChange = event => {
+    document.querySelector(".add-plant-div").style.display="block";
     const { name, value } = event.target;
     this.setState({
       [name]: value
@@ -39,6 +41,7 @@ class Home extends Component {
   };
 
   handleFormSubmit = event => {
+    document.querySelector(".add-plant-div").style.display="none";
     console.log('handle form submit called');
     event.preventDefault();
     API.savePlant(this.state.search)
@@ -79,6 +82,7 @@ class Home extends Component {
         handleFormSubmit={this.handleFormSubmit}
         handleChange={this.handleChange}
         />
+       
         <TestCard 
         plants={this.state.plants}
         handleSavedButton={this.handleSavedButton}

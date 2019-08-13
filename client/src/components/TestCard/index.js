@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import AddPlantCard from "../AddPlantCard";
 
 const TestCard = props => {
     return (props.plants.length === 0) ? (
@@ -15,6 +16,7 @@ const TestCard = props => {
             <div className="card-body">
                 <div className="card-title">
                     <h3> </h3>
+                    <AddPlantCard/>
         {props.plants.map(plant => {
             return (
                 <div className="card mb-3">
