@@ -144,7 +144,7 @@ const Garden = () => {
     API.cutPlant(plant)
       .then(res => 
         {setState({plants: res.data})
-        console.log(res)},
+        console.log(res.data.plants)},
         console.log(`${plant} cut from garden`))
       .catch(err => console.log(err));
   }
@@ -193,7 +193,7 @@ const Garden = () => {
              
               <NotesBadge notes={plants.notes} notesFound={false}/>
               
-              <FontAwesome name='times' size='2x' style={{ color: "#ed5d15" }} className="float-right" onClick=""/>
+              <FontAwesome name='times' size='2x' style={{ color: "#ed5d15" }} className="float-right" onClick={() => handleDelete}/>
             
             <h3 className="text-center">{plants.title}</h3>
 
