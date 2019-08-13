@@ -29,10 +29,13 @@ const TestCard = props => {
                         <div className="col-md-8">
                             <div className="card-body">
                             <h5 className="card-title">{plant.title}</h5>
-                            <p className="card-text">{plant.description}</p>
-                            <button className="savePlant btn" id={plant._id} onClick={(event) => props.handleSavedButton(event)}>
-                                Add to Garden
-                            </button>
+                            <p className="card-text">{plant.description}</p> 
+                           
+                                <button  className={"btn "+(props.addedPlants.includes(plant._id) ? "addedPlant" : "savePlant")}  id={plant._id} onClick={(event) => props.handleSavedButton(event)}>
+                                    {(props.addedPlants.includes(plant._id) ? "Added to Garden" : "Add to Garden")}
+                                </button>
+
+                             
                         </div>
                         </div>
                     </div>

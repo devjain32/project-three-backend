@@ -40,6 +40,7 @@ const SearchResult = props => {
                                     </Row>
                                     <br></br>
                                     <Row className="buttonDiv ">
+                                        
                                         <button className="savePlant btn" id={plant.id} onClick={(event) => props.handleSavedButton(event)}>
                                             Add to Garden
                                         </button>

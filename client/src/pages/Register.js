@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { Col, Row, Container } from "../components/Grid";
 import UserForm from "../components/UserForm";
 import Header from "../components/Header";
@@ -9,7 +9,9 @@ class Register extends Component {
   state = {
       email: "",
       password: "",
-      isReg: false
+      isReg: false,
+      form: "/login",
+      text: "I'm already a member."
   };
 
   handleChange = event => {
@@ -64,11 +66,13 @@ class Register extends Component {
                   <Col size="12">
                     <div className="register-form">
                         <UserForm 
-                        title="Sign up"
+                        title="Sign Up"
                         handleFormSubmit={this.handleFormSubmit}
                         handleChange={this.handleChange}
+                        form={this.state.form}
+                        text={this.state.text}
                         />
-                        <Link to="/login" className="FormField__Link">I'm already a member.</Link>
+                        {/* <Link to="/login" className="FormField__Link">I'm already a member.</Link> */}
                     </div>
                     {
                       this.renderRedirect(this.state.email)

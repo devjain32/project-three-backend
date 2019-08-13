@@ -11,9 +11,11 @@ import Weather from "../components/Weather";
 import FontAwesome from "react-fontawesome";
 
 function NotesBadge(props) {
+  console.log(props)
+  console.log(props.notes)
   if(props.notes.length > 0){
     return(
-      <FontAwesome name='sticky-note' size='2x' style={{ color: "green" }}/>
+      <FontAwesome name='sticky-note' size='2x' style={{ color: "#224922" }}/>
     )
   }
   return(<div></div>)
@@ -30,6 +32,8 @@ function PlantNotes(props) {
    
   )
 }
+
+
 
 function Example(props) {
   const [show, setShow] = useState(false);
@@ -78,7 +82,7 @@ function Example(props) {
         })
       }
     )
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
   }
 
   return (
@@ -97,14 +101,14 @@ function Example(props) {
         </Modal.Header>
         <Modal.Body> 
           <PlantNotes notes={plantNotes}/>
-          <textarea style={{ width: "100%", margin: "15px" }} placeholder="Add a note..." onChange={setNoteState}></textarea>
+          <textarea style={{ width: "100%" }} placeholder="Add a note..." onChange={setNoteState}></textarea>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cancel
          </Button>
-          <Button variant="primary" onClick={addNote} id={props.id}>
-            Save Changes
+          <Button variant="primary" onClick={addNote} id={props.id} style={{backgroundColor:"#142101", borderColor:"#142101"}}>
+            Add Note
          </Button>
         </Modal.Footer>
       </Modal>
@@ -135,6 +139,23 @@ const Garden = () => {
       .then(res => {setState({ foundGarden: true, plants: res.data.plants })
               console.log(res)})
       .catch(err => console.log(err));
+  }
+
+  const cutPlant = event => {
+    let plant = {id: event.target.id}
+    API.cutPlant(plant)
+      .then(res => 
+        console.log(res.data),
+        console.log(`${plant.id} cut from garden`))
+      .catch(err => console.log(err));
+    loadGarden();
+  }
+
+  const handleDelete = event => {
+    console.log("clicked x")
+    event.preventDefault();
+    console.log(event.target.id)
+    cutPlant(event);
   }
 
   // const loadPlants = () => {
@@ -171,13 +192,21 @@ const Garden = () => {
       <List>
         <Row>
         {state.plants.map(plants => (
-          <Col lg={4} md={6} sm={12}>
+          <Col lg={4} md={6} sm={12} key={plants._id}>
           <ListItem key={plants._id}>
              
               <NotesBadge notes={plants.notes} notesFound={false}/>
               
+              <FontAwesome 
+                name='times' 
+                size='2x' 
+                id={plants._id}
+                style={{ color: "#ed5d15" }} 
+                className="float-right" 
+                onClick={event => handleDelete(event)}/>
             
             <h3 className="text-center">{plants.title}</h3>
+
             <ButtonToolbar >
 
               {/* <Button variant="primary" onClick={() => setModalShow(true)}>

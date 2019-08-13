@@ -6,7 +6,7 @@ import "./style.css";
 
 function GardenResult(props){
 
-    return (
+    return ( 
         <div className="parent">
             <div className="garden">
                 <img id="rose" onClick={()=>{props.handleShowProp()}} src={props.img} alt="garden-section" className="rounded mx-auto d-block"/>

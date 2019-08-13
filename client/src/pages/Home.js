@@ -12,7 +12,8 @@ import AddPlantCard from "../components/AddPlantCard";
 class Home extends Component {
   state = {
     search: "",
-    plants: []
+    plants: [],
+    addedPlants: []
   }
 
   componentDidMount() {
@@ -23,13 +24,23 @@ class Home extends Component {
   }
   
   loadPlants = () => {
-    API.loadPlants().then(res => {
-      console.log(res.data)
-      this.setState({plants: res.data, search: ""})
-    }
+    // This will probably need to change too, but we'll get to that
+
+    API.loadGarden().then(res => {
       
-      )
- 
+      const plantsArry = [];
+      for(var i=0; i<res.data.plants.length; i++){
+        plantsArry.push(res.data.plants[i]._id)
+
+      } 
+      console.log("garden plants", plantsArry)
+      this.setState({addedPlants: plantsArry})
+      API.loadPlants().then(res => {
+        console.log(res.data)
+        this.setState({plants: res.data, search: "", /* addedPalnts: res.data.something */ })
+      })
+    })
+    
   }
   
   handleChange = event => {
@@ -61,7 +72,11 @@ class Home extends Component {
     console.log(this.state.plants);
     console.log(event.target.id);
     const plantObj = {_id: event.target.id}
-    API.savePlant(plantObj).then(plant => console.log(plant))
+    API.savePlant(plantObj).then(res => {
+      // Update the addedPlants array in the state
+      // e.g. this.setState({ addedPlants: res.data.something });
+      console.log(res);
+    })
     // let savedPlants = this.state.plants.filter(plant => plant.id === event.target.id)
     // savedPlants = savedPlants[0];
     // API.savePlant(savedPlants)
@@ -85,6 +100,7 @@ class Home extends Component {
        
         <TestCard 
         plants={this.state.plants}
+        addedPlants={this.state.addedPlants}
         handleSavedButton={this.handleSavedButton}
         />
         {/* Hello! Sign up! <br/>

@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
+    "@babel/runtime": "^7.5.5",
     "bootstrap": "^4.3.1",
     "dotenv": "^8.0.0",
     "prop-types": "^15.7.2",
@@ -49,6 +50,6 @@
   "bugs": {
     "url": "https://github.com/devjain32/project-three-backend/issues"
   },
-  "homepage": "https://github.com/devjain32/project-three-backend#readme",
+  "homepage": "https://myplantpal.herokuapp.com/",
   "parser": "babel-eslint"
 }
