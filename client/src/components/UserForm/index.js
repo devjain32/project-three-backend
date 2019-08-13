@@ -38,7 +38,7 @@ const UserForm = props => {
                     onClick={props.handleFormSubmit}>
                     Submit
                 </button>
-                <Link to="/" className="FormField__Link" style={{color: "white"}}>{props.text}</Link>
+                <Link to={props.form} className="FormField__Link" style={{color: "white"}}>{props.text}</Link>
             </div>
         </form>
         </div>
