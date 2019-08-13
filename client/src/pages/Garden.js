@@ -11,7 +11,9 @@ import Weather from "../components/Weather";
 import FontAwesome from "react-fontawesome";
 
 function NotesBadge(props) {
-  if(props.notes){
+  console.log(props)
+  console.log(props.notes)
+  if(props.notes.length > 0){
     return(
       <FontAwesome name='sticky-note' size='2x' style={{ color: "#224922" }}/>
     )
@@ -143,8 +145,7 @@ const Garden = () => {
     let plant = {id: event.target.id}
     API.cutPlant(plant)
       .then(res => 
-        {setState({plants: res.data.plants})
-        console.log(res.data)},
+        console.log(res.data),
         console.log(`${plant.id} cut from garden`))
       .catch(err => console.log(err));
     loadGarden();
